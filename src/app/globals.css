@@ -43,10 +43,14 @@ h6 {
   background-color: rgba(0, 0, 0, 0.8);
   pointer-events: none;
   z-index: 9999;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(-45deg);
   transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
   mix-blend-mode: difference;
   filter: invert(1);
+}
+
+.customCursor.hovering {
+  transform: translate(-50%, -50%) scale(2.5) rotate(-45deg);
 }
 
 body {
