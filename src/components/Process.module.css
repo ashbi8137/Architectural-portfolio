@@ -1,0 +1,123 @@
+.section {
+    padding: 10rem 2rem;
+    background-color: var(--surface);
+    color: var(--foreground);
+    position: relative;
+    overflow: hidden;
+}
+
+.headingWrapper {
+    text-align: center;
+    margin-bottom: 8rem;
+}
+
+.heading {
+    font-size: clamp(3rem, 6vw, 6rem);
+    text-transform: uppercase;
+    font-weight: 200;
+    letter-spacing: -0.03em;
+    margin: 0;
+    color: var(--foreground);
+    opacity: 0.9;
+}
+
+.stepsContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 10rem;
+}
+
+/* A subtle guide line to connect them visually, optional */
+.guideLine {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1), transparent);
+    transform: translateX(-50%);
+}
+
+.stepWrapper {
+    display: flex;
+    margin-bottom: 12rem;
+    /* Airy spacing */
+    position: relative;
+}
+
+.stepContent {
+    width: 45%;
+    /* Less than half to allow interesting gaps */
+    position: relative;
+}
+
+/* Positioning Variants */
+.left {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.right {
+    justify-content: flex-end;
+    text-align: left;
+    /* Keep text left aligned for readability even on right side */
+}
+
+/* Specific styling for the content block */
+.number {
+    font-size: 8rem;
+    font-weight: 100;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.05);
+    /* Very subtle, architectural watermark */
+    position: absolute;
+    top: -4rem;
+    left: -2rem;
+    z-index: 0;
+    font-family: var(--font-geist-mono);
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+}
+
+.desc {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    position: relative;
+    z-index: 1;
+    max-width: 400px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .guideLine {
+        left: 20px;
+    }
+
+    .stepWrapper {
+        flex-direction: column;
+        margin-bottom: 6rem;
+        padding-left: 3rem;
+        /* Indent from guideline */
+    }
+
+    .stepContent {
+        width: 100%;
+        text-align: left;
+    }
+
+    .number {
+        font-size: 5rem;
+        top: -2.5rem;
+        left: -1rem;
+    }
+}

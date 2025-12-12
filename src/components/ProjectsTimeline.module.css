@@ -1,0 +1,198 @@
+.section {
+    background-color: var(--surface);
+    color: var(--foreground);
+    padding: 8rem 2rem;
+    position: relative;
+    z-index: 20;
+}
+
+.heading {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 8rem;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 12rem;
+    /* Increased gap for larger cards */
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.projectRow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Image Cluster Layout */
+.imageCluster {
+    position: relative;
+    height: 850px;
+    /* INCREASED: Massive size as requested */
+    width: 100%;
+}
+
+.imageWrapperInner {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    cursor: zoom-in;
+}
+
+.image {
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.imageCluster:hover .image {
+    transform: scale(1.02);
+}
+
+/* Main Image */
+.mainImageWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    /* INCREASED width */
+    height: 75%;
+    /* INCREASED height */
+    z-index: 2;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+    /* Deeper shadow */
+}
+
+/* Detail 1 - Top Right */
+.detailImage1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* Pushed to edge */
+    width: 35%;
+    height: 40%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Detail 2 - Bottom Left */
+.detailImage2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* Pushed to edge */
+    width: 40%;
+    height: 35%;
+    z-index: 3;
+    overflow: hidden;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+}
+
+.projectTitle {
+    font-family: var(--font-libre);
+    /* Luxury Serif */
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    /* EVEN LARGER Typography */
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    line-height: 1;
+    color: #111;
+    letter-spacing: -0.03em;
+}
+
+.projectMeta {
+    font-family: var(--font-libre);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #666;
+    margin-bottom: 2.5rem;
+    display: inline-block;
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+}
+
+.description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    max-width: 500px;
+    color: #444;
+    font-weight: 300;
+}
+
+/* LIGHTBOX MODAL */
+.lightboxOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    padding: 2rem;
+}
+
+.lightboxContent {
+    position: relative;
+    width: 95vw;
+    height: 95vh;
+    max-width: 1600px;
+}
+
+.lightboxImage {
+    object-fit: contain;
+}
+
+/* Desktop Alternating Layout */
+@media (min-width: 1024px) {
+    .projectRow {
+        grid-template-columns: 1.5fr 1fr;
+        /* 60% Image / 40% Text */
+        gap: 6rem;
+    }
+
+    /* Even Rows: Image on Right */
+    .projectRow:nth-child(even) .imageCluster {
+        order: 2;
+    }
+
+    .projectRow:nth-child(even) .content {
+        order: 1;
+        align-items: flex-end;
+        text-align: right;
+    }
+}
+
+@media (max-width: 768px) {
+    .imageCluster {
+        height: 500px;
+        /* Shorter on mobile */
+    }
+
+    .mainImageWrapper {
+        width: 90%;
+        height: 60%;
+    }
+}
