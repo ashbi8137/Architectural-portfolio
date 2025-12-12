@@ -7,18 +7,18 @@ import styles from "./Impact.module.css";
 const testimonials = [
     {
         quote: "Shamil Puthusseri Architects realized a home we didn't know we needed. It captures light in a way that changes how we live.",
-        author: "Sarah Jenkins",
-        role: "Cliff House"
+        author: "Mr. Abdurahiman",
+        role: "Areekode Residence"
     },
     {
         quote: "A masterclass in restraint and beauty. The studio transformed our vision into a timeless reality.",
-        author: "David Chen",
-        role: "Urban Loft"
+        author: "Mr. Subin",
+        role: "Mukkam Villa"
     },
     {
         quote: "Architecture that breathes. They understood the site better than we did ourselves.",
-        author: "Elena Rodriguez",
-        role: "Cultural Center"
+        author: "Mr. Shinu",
+        role: "Industrial Loft"
     },
 ];
 

@@ -52,8 +52,7 @@ export default function Manifesto() {
 
                     <div className={styles.proseWrapper}>
                         <p className={styles.prose}>
-                            "Architecture is <span className={styles.highlight}>silence</span> made visible.
-                            It is a conversation between the land and the light."
+                            "Every structure begins as a <span className={styles.highlight}>whisper</span> between land, light, and imagination."
                         </p>
                         <p className={styles.proseSmall}>
                             We do not just build spaces. We carefully craft experiences that pause time and elevate the human spirit.

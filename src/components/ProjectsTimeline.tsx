@@ -9,21 +9,21 @@ const projects = [
     {
         id: 1,
         title: "Mr. Abdurahiman & Ms. Shareena",
-        description: "A monolithic concrete structure perched on the edge of the coastline, framing panoramic ocean views while maintaining privacy.",
+        description: "A 4000 sqft modern villa that balances bold geometry with soft natural textures. The design creates fluid transitions between indoor and outdoor spaces while maintaining a calm, private living environment.",
         tags: "Areekode, Malappuram · 2023",
         images: ["/Architectural-portfolio/images/courtyard-night.jpg", "/Architectural-portfolio/images/courtyard-night.jpg", "/Architectural-portfolio/images/courtyard-night.jpg"]
     },
     {
         id: 2,
         title: "Mr. Subin & Dr. Jahana",
-        description: "Centering life around a lush internal garden, this villa explores the boundaries between indoor and outdoor living.",
+        description: "A sanctuary designed around a central green core, allowing nature to permeate every living space. The architecture fosters a constant dialogue between the interior comfort and the serenity of the outdoors.",
         tags: "Mukkam, Kozhikode · 2023",
         images: ["/Architectural-portfolio/images/courtyard-villa.png", "/Architectural-portfolio/images/courtyard-villa.png", "/Architectural-portfolio/images/courtyard-villa.png"]
     },
     {
         id: 3,
         title: "Mr. Shinu & Ms. Juliya",
-        description: "Reimagining an industrial warehouse into a warm, gallery-like living space using honest textures and adaptive reuse.",
+        description: "A transformative restoration that repurposes industrial heritage into a contemporary dwelling. Raw textures interact with refined detailing to create a space that honors its past while embracing modern living.",
         tags: "Interior · 2023 · Industrial",
         images: ["/Architectural-portfolio/images/urban-loft.png", "/Architectural-portfolio/images/urban-loft.png", "/Architectural-portfolio/images/urban-loft.png"]
     }

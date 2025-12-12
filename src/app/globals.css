@@ -30,6 +30,25 @@ h6 {
   font-weight: 400;
 }
 
+.customCursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: 1px solid black;
+  /* Architectural Triangle */
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background-color: rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
+  mix-blend-mode: difference;
+  filter: invert(1);
+}
+
 body {
   font-family: var(--font-main), sans-serif;
   line-height: 1.6;
