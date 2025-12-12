@@ -38,19 +38,28 @@ h6 {
   height: 20px;
   background-color: transparent;
   border: 1px solid black;
-  /* Architectural Triangle */
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  background-color: rgba(0, 0, 0, 0.8);
+  /* Architectural Arrow (Triangle pointing Top-Left) */
+  clip-path: polygon(0% 0%, 70% 100%, 100% 70%);
+  background-color: var(--accent);
   pointer-events: none;
   z-index: 9999;
-  transform: translate(-50%, -50%) rotate(-45deg);
-  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
-  mix-blend-mode: difference;
-  filter: invert(1);
+  /* Tip at 0,0 requires different translate logic or just top/left 0 */
+  transform: translate(0, 0);
+  transition: width 0.2s ease, height 0.2s ease;
+  mix-blend-mode: normal;
 }
 
 .customCursor.hovering {
-  transform: translate(-50%, -50%) scale(2.5) rotate(-45deg);
+  transform: scale(1.5);
+}
+
+body,
+html,
+a,
+button,
+input,
+textarea {
+  cursor: none !important;
 }
 
 body {
@@ -84,8 +93,7 @@ body {
   font-family: var(--font-main), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none;
-  /* Hide default cursor globally */
+  /* cursor none handled above */
 }
 
 /* Smooth scrolling for anchor links */

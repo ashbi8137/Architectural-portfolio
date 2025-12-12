@@ -11,14 +11,14 @@ const projects = [
         title: "Mr. Abdurahiman & Ms. Shareena",
         description: "A 4000 sqft modern villa that balances bold geometry with soft natural textures. The design creates fluid transitions between indoor and outdoor spaces while maintaining a calm, private living environment.",
         tags: "Areekode, Malappuram · 2023",
-        images: ["/Architectural-portfolio/images/courtyard-night.jpg", "/Architectural-portfolio/images/courtyard-night.jpg", "/Architectural-portfolio/images/courtyard-night.jpg"]
+        images: ["/Architectural-portfolio/images/abdurahiman-exterior.jpg", "/Architectural-portfolio/images/abdurahiman-patio-day.jpg", "/Architectural-portfolio/images/abdurahiman-living.jpg"]
     },
     {
         id: 2,
         title: "Mr. Subin & Dr. Jahana",
         description: "A sanctuary designed around a central green core, allowing nature to permeate every living space. The architecture fosters a constant dialogue between the interior comfort and the serenity of the outdoors.",
         tags: "Mukkam, Kozhikode · 2023",
-        images: ["/Architectural-portfolio/images/courtyard-villa.png", "/Architectural-portfolio/images/courtyard-villa.png", "/Architectural-portfolio/images/courtyard-villa.png"]
+        images: ["/Architectural-portfolio/images/subin-night.jpg", "/Architectural-portfolio/images/subin-day-final.jpg", "/Architectural-portfolio/images/subin-living.jpg"]
     },
     {
         id: 3,
@@ -90,7 +90,16 @@ function ProjectCard({ project, index, onImageClick }: { project: any, index: nu
             </div>
 
             <div className={styles.content}>
-                <h3 className={styles.projectTitle}>{project.title}</h3>
+                <h3 className={styles.projectTitle}>
+                    {project.title.includes(" & ") ? (
+                        <>
+                            {project.title.split(" & ")[0]} &<br />
+                            <span className={styles.secondName}>{project.title.split(" & ")[1]}</span>
+                        </>
+                    ) : (
+                        project.title
+                    )}
+                </h3>
                 <div className={styles.projectMeta}>{project.tags}</div>
                 <p className={styles.description}>{project.description}</p>
             </div>

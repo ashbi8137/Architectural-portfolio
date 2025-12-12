@@ -41,11 +41,27 @@
 }
 
 .imageWrapperInner {
+    position: relative;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    border-radius: 2px;
+    /* Architectural Border Effect */
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
     display: block;
-    position: relative;
     cursor: zoom-in;
+}
+
+.imageWrapperInner::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 2;
+    pointer-events: none;
 }
 
 .image {
@@ -112,10 +128,16 @@
     font-size: clamp(3rem, 6vw, 4.5rem);
     /* EVEN LARGER Typography */
     font-weight: 300;
-    margin-bottom: 1.5rem;
-    line-height: 1;
+    margin-bottom: 2rem;
+    line-height: 1.1;
     color: #111;
     letter-spacing: -0.03em;
+}
+
+.secondName {
+    display: block;
+    margin-top: 0.2rem;
+    /* Optional: Diff size or style if needed, currently inheriting */
 }
 
 .projectMeta {
