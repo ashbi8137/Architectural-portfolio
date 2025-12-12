@@ -18,14 +18,14 @@ const projects = [
         title: "Mr. Subin & Dr. Jahana",
         description: "A sanctuary designed around a central green core, allowing nature to permeate every living space. The architecture fosters a constant dialogue between the interior comfort and the serenity of the outdoors.",
         tags: "Mukkam, Kozhikode · 2023",
-        images: ["/Architectural-portfolio/images/subin-night.jpg", "/Architectural-portfolio/images/subin-day-final.jpg", "/Architectural-portfolio/images/subin-living.jpg"]
+        images: ["/Architectural-portfolio/images/subin-night-v2.jpg", "/Architectural-portfolio/images/subin-day-final.jpg", "/Architectural-portfolio/images/subin-living.jpg"]
     },
     {
         id: 3,
         title: "Mr. Shinu & Ms. Juliya",
         description: "A transformative restoration that repurposes industrial heritage into a contemporary dwelling. Raw textures interact with refined detailing to create a space that honors its past while embracing modern living.",
         tags: "Interior · 2023 · Industrial",
-        images: ["/Architectural-portfolio/images/urban-loft.png", "/Architectural-portfolio/images/urban-loft.png", "/Architectural-portfolio/images/urban-loft.png"]
+        images: ["/Architectural-portfolio/images/shinu-night.jpg", "/Architectural-portfolio/images/shinu-facade.jpg", "/Architectural-portfolio/images/shinu-patio.jpg"]
     }
 ];
 

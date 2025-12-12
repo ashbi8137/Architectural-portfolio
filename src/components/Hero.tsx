@@ -6,8 +6,8 @@ import { useState, useEffect } from "react";
 import styles from "./Hero.module.css";
 
 const heroImages = [
-  "/Architectural-portfolio/images/courtyard-night.jpg",
-  "/Architectural-portfolio/images/subin-night.jpg",
+  "/Architectural-portfolio/images/shinu-night.jpg",
+  "/Architectural-portfolio/images/subin-night-v2.jpg",
   "/Architectural-portfolio/images/abdurahiman-exterior.jpg"
 ];
 
@@ -49,10 +49,10 @@ export default function Hero() {
           <motion.div
             key={index}
             className={styles.absoluteFull}
-            initial={{ opacity: 0, scale: 1.1 }}
+            initial={{ opacity: 0, scale: 1.05 }}
             animate={{
               opacity: index === currentIndex ? 1 : 0,
-              scale: index === currentIndex ? 1 : 1.1
+              scale: index === currentIndex ? 1 : 1.05
             }}
             transition={{ duration: 2.5, ease: "easeInOut" }} // Slow, luxurious crossfade
             style={{ zIndex: index === currentIndex ? 1 : 0 }}
@@ -64,16 +64,30 @@ export default function Hero() {
               className={styles.image}
               priority={index === 0}
               quality={100}
+              sizes="100vw"
             />
             <div className={styles.overlay} />
           </motion.div>
         ))}
       </div>
 
+      {/* Logo in top-left corner */}
+      <div className={styles.logoCorner}>
+        <Image
+          src="/Architectural-portfolio/images/logo-icon-v1.png"
+          alt="Icon"
+          width={35}
+          height={35}
+          className={styles.logoImage}
+        />
+        <div className={styles.logoTextContainer}>
+          <div className={styles.logoTitle}>SHAMIL PUTHUSSERI</div>
+          <div className={styles.logoSubtitle}>ARCHITECTS</div>
+        </div>
+      </div>
+
       {/* Content Layer with Masked Staggered Text */}
       <div className={styles.content}>
-        {/* Logo in top-left corner */}
-
 
         <motion.div
           className={styles.textContent}

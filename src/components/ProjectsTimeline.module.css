@@ -208,13 +208,62 @@
 }
 
 @media (max-width: 768px) {
+    .section {
+        padding: 4rem 1.5rem;
+    }
+
+    .heading {
+        margin-bottom: 4rem;
+    }
+
+    .timeline {
+        gap: 6rem;
+    }
+
+    .projectRow {
+        gap: 3rem;
+    }
+
     .imageCluster {
-        height: 500px;
-        /* Shorter on mobile */
+        height: 400px;
+        /* More compact representation */
+        margin-bottom: 1rem;
     }
 
     .mainImageWrapper {
-        width: 90%;
-        height: 60%;
+        width: 80%;
+        height: 65%;
+    }
+
+    .detailImage1,
+    .detailImage2 {
+        display: none;
+        /* Simplification: Hide details on very small screens to focus on main image vs text? 
+           OR keep them but make them smaller. User asked for "centered" and "alignment".
+           Let's keep them but ensure they don't break. */
+        display: block;
+        width: 30%;
+        height: 35%;
+    }
+
+    .content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .projectTitle {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .projectMeta {
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .description {
+        text-align: center;
+        margin: 0 auto;
+        font-size: 1rem;
     }
 }

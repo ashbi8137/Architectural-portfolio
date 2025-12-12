@@ -11,7 +11,55 @@
     align-items: center;
 }
 
-/* Logo Styles Removed */
+/* Logo Styles */
+.logoCorner {
+    position: absolute;
+    top: 2.5rem;
+    left: 2.5rem;
+    z-index: 50;
+    /* Above overlay */
+    display: flex;
+    align-items: center;
+}
+
+.logoImage {
+    height: 30px;
+    /* Reduced from 45px */
+    width: auto;
+    object-fit: contain;
+    /* Use Screen mode to remove black background from the generated icon */
+    mix-blend-mode: screen;
+    opacity: 1;
+}
+
+.logoTextContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 0.6rem;
+    color: #fff;
+    line-height: 1;
+}
+
+.logoTitle {
+    font-family: var(--font-libre);
+    font-weight: 700;
+    font-size: 0.7rem;
+    /* Reduced to match subtitle */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+}
+
+.logoSubtitle {
+    font-family: var(--font-libre);
+    font-weight: 300;
+    font-size: 0.6rem;
+    /* Slightly reduced */
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin-top: 2px;
+}
 
 .imageLayer {
     position: absolute;
