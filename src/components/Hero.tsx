@@ -6,9 +6,9 @@ import { useState, useEffect } from "react";
 import styles from "./Hero.module.css";
 
 const heroImages = [
-  "/images/courtyard-night.jpg",
-  "/images/courtyard-day-detail.jpg",
-  "/images/hero.png"
+  "/Architectural-portfolio/images/courtyard-night.jpg",
+  "/Architectural-portfolio/images/courtyard-day-detail.jpg",
+  "/Architectural-portfolio/images/hero.png"
 ];
 
 // Animation Variants for Staggered Reveal

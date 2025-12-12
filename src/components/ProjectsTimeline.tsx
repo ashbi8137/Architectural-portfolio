@@ -11,21 +11,21 @@ const projects = [
         title: "Mr. Abdurahiman & Ms. Shareena",
         description: "A monolithic concrete structure perched on the edge of the coastline, framing panoramic ocean views while maintaining privacy.",
         tags: "Areekode, Malappuram · 2023",
-        images: ["/images/courtyard-night.jpg", "/images/courtyard-night.jpg", "/images/courtyard-night.jpg"]
+        images: ["/Architectural-portfolio/images/courtyard-night.jpg", "/Architectural-portfolio/images/courtyard-night.jpg", "/Architectural-portfolio/images/courtyard-night.jpg"]
     },
     {
         id: 2,
         title: "Mr. Subin & Dr. Jahana",
         description: "Centering life around a lush internal garden, this villa explores the boundaries between indoor and outdoor living.",
         tags: "Mukkam, Kozhikode · 2023",
-        images: ["/images/courtyard-villa.png", "/images/courtyard-villa.png", "/images/courtyard-villa.png"]
+        images: ["/Architectural-portfolio/images/courtyard-villa.png", "/Architectural-portfolio/images/courtyard-villa.png", "/Architectural-portfolio/images/courtyard-villa.png"]
     },
     {
         id: 3,
         title: "Mr. Shinu & Ms. Juliya",
         description: "Reimagining an industrial warehouse into a warm, gallery-like living space using honest textures and adaptive reuse.",
         tags: "Interior · 2023 · Industrial",
-        images: ["/images/urban-loft.png", "/images/urban-loft.png", "/images/urban-loft.png"]
+        images: ["/Architectural-portfolio/images/urban-loft.png", "/Architectural-portfolio/images/urban-loft.png", "/Architectural-portfolio/images/urban-loft.png"]
     }
 ];
 

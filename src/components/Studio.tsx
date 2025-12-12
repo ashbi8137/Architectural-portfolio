@@ -17,7 +17,7 @@ export default function Studio() {
                 <div className={styles.imageColumn}>
                     <div className={styles.imageWrapper}>
                         <Image
-                            src="/images/ceo-new.jpg"
+                            src="/Architectural-portfolio/images/ceo-new.jpg"
                             alt="Ar Shamil P A"
                             fill
                             className={styles.ceoImage}

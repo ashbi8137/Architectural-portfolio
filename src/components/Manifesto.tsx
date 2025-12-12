@@ -30,7 +30,7 @@ export default function Manifesto() {
 
                         {/* Main Image */}
                         <Image
-                            src="/images/ceo-new.jpg"
+                            src="/Architectural-portfolio/images/ceo-new.jpg"
                             alt="Ar Shamil P A"
                             fill
                             className={styles.ceoImage}
