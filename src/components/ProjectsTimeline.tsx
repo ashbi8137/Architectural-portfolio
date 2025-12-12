@@ -11,7 +11,7 @@ const projects = [
         title: "Mr. Abdurahiman & Ms. Shareena",
         description: "A 4000 sqft modern villa that balances bold geometry with soft natural textures. The design creates fluid transitions between indoor and outdoor spaces while maintaining a calm, private living environment.",
         tags: "Areekode, Malappuram · 2023",
-        images: ["/Architectural-portfolio/images/abdurahiman-exterior.jpg", "/Architectural-portfolio/images/abdurahiman-patio-day.jpg", "/Architectural-portfolio/images/abdurahiman-living.jpg"]
+        images: ["/Architectural-portfolio/images/abdurahiman-exterior-v2.jpg", "/Architectural-portfolio/images/abdurahiman-patio-day.jpg", "/Architectural-portfolio/images/abdurahiman-living.jpg"]
     },
     {
         id: 2,

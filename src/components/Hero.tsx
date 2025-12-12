@@ -8,7 +8,7 @@ import styles from "./Hero.module.css";
 const heroImages = [
   "/Architectural-portfolio/images/shinu-night.jpg",
   "/Architectural-portfolio/images/subin-night-v2.jpg",
-  "/Architectural-portfolio/images/abdurahiman-exterior.jpg"
+  "/Architectural-portfolio/images/abdurahiman-exterior-v2.jpg"
 ];
 
 // Animation Variants for Staggered Reveal
