@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import styles from "./Hero.module.css";
@@ -12,7 +12,7 @@ const heroImages = [
 ];
 
 // Animation Variants for Staggered Reveal
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -22,7 +22,7 @@ const containerVariants = {
   }
 };
 
-const textRevealVariants = {
+const textRevealVariants: Variants = {
   hidden: { y: "110%", opacity: 0 },
   visible: {
     y: "0%",
