@@ -5,9 +5,9 @@ import Image from "next/image";
 import styles from "./Studio.module.css";
 
 const team = [
-    { name: "John Doe", role: "Senior Arch.", image: "/images/placeholder.svg" },
-    { name: "Jane Smith", role: "Interior Lead", image: "/images/placeholder.svg" },
-    { name: "Alex Ray", role: "Visualizer", image: "/images/placeholder.svg" },
+    { name: "John Doe", role: "Senior Arch.", image: "/Architectural-portfolio/images/placeholder.svg" },
+    { name: "Jane Smith", role: "Interior Lead", image: "/Architectural-portfolio/images/placeholder.svg" },
+    { name: "Alex Ray", role: "Visualizer", image: "/Architectural-portfolio/images/placeholder.svg" },
 ];
 
 export default function Studio() {
