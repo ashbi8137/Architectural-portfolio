@@ -6,11 +6,11 @@ import Image from "next/image";
 import styles from "./Materiality.module.css";
 
 const materials = [
-    { name: "Concrete", image: "/images/texture-concrete.png" },
-    { name: "Wood Slats", image: "/images/texture-wood.png" },
-    { name: "Natural Stone", image: "/images/texture-stone.png" },
-    { name: "Metal Mesh", image: "/images/texture-metal.png" },
-    { name: "Light", image: "/images/texture-light.png" },
+    { name: "Concrete", image: "/Architectural-portfolio/images/texture-concrete.png" },
+    { name: "Wood Slats", image: "/Architectural-portfolio/images/texture-wood.png" },
+    { name: "Natural Stone", image: "/Architectural-portfolio/images/texture-stone.png" },
+    { name: "Metal Mesh", image: "/Architectural-portfolio/images/texture-metal.png" },
+    { name: "Light", image: "/Architectural-portfolio/images/texture-light.png" },
 ];
 
 export default function Materiality() {

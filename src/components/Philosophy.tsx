@@ -63,13 +63,13 @@ export default function Philosophy() {
                         className={styles.imageWrapper}
                         style={{ y: useTransform(scrollYProgress, [0, 1], [50, -50]) }}
                     >
-                        <Image src="/images/texture-light.png" alt="Light and Shadow" fill style={{ objectFit: 'cover' }} />
+                        <Image src="/Architectural-portfolio/images/texture-light.png" alt="Light and Shadow" fill style={{ objectFit: 'cover' }} />
                     </motion.div>
                     <motion.div
                         className={styles.imageWrapper}
                         style={{ y: useTransform(scrollYProgress, [0, 1], [0, -100]) }}
                     >
-                        <Image src="/images/texture-concrete.png" alt="Concrete Texture" fill style={{ objectFit: 'cover' }} />
+                        <Image src="/Architectural-portfolio/images/texture-concrete.png" alt="Concrete Texture" fill style={{ objectFit: 'cover' }} />
                     </motion.div>
                 </div>
             </div>

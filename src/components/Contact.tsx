@@ -110,7 +110,7 @@ export default function Contact() {
                     viewport={{ once: true }}
                     transition={{ duration: 1 }}
                 >
-                    <Image src="/images/contact-lobby.png" alt="Contact Interior" fill style={{ objectFit: 'cover' }} />
+                    <Image src="/Architectural-portfolio/images/contact-lobby.png" alt="Contact Interior" fill style={{ objectFit: 'cover' }} />
                 </motion.div>
             </div>
 
