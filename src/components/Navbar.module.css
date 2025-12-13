@@ -1,0 +1,126 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* Trigger wrapper hits top */
+    z-index: 100;
+    /* Highest z-index */
+    mix-blend-mode: difference;
+    /* Ensure visibility on light/dark */
+    color: white;
+    /* Difference mode makes this invert correctly */
+}
+
+/* Common Text Style */
+.brand,
+.contactLink,
+.menuText {
+    font-family: var(--font-tenor);
+    font-size: 0.9rem;
+    /* Crisp, small size like ref */
+    text-transform: uppercase;
+    font-weight: 700;
+    /* Bold/Heavy like Zayla */
+    letter-spacing: 0.1em;
+    line-height: 1;
+}
+
+/* Align Brand & Contact downwards to match "Menu Text" position */
+/* Menu wrapper has: Line (2px) + Gap (0.6rem) + Text */
+/* So we push Brand/Contact down by Line + Gap */
+.brand,
+.contactLink {
+    margin-top: calc(2px + 0.6rem);
+    /* Align with text below line */
+    cursor: pointer;
+}
+
+/* Center Menu Trigger */
+.menuTriggerWrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    /* Space between line and text */
+    cursor: pointer;
+    margin-top: 0;
+    /* Align wrapper to top */
+}
+
+.menuLine {
+    width: 60px;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.menuTriggerWrapper:hover .menuLine {
+    width: 90px;
+}
+
+/* Overlay & Mobile Styles remain similar... */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #1a1a1a;
+    color: #FDFCF8;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.navLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    list-style: none;
+    /* Remove bullets */
+}
+
+.navItem {
+    font-family: var(--font-tenor);
+    font-size: clamp(3rem, 6vw, 5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.navItem:hover {
+    color: white;
+    transform: scale(1.05);
+    /* Slight luxurious lift */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1.5rem;
+    }
+
+    .brand,
+    .contactLink,
+    .menuText {
+        font-size: 0.75rem;
+    }
+
+    .menuLine {
+        width: 40px;
+    }
+}

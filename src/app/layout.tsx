@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 
 import SmoothScroll from "@/components/SmoothScroll";
 import Grain from "@/components/Grain";
+import Navbar from "@/components/Navbar";
 
 export default function RootLayout({
   children,
@@ -26,6 +27,7 @@ export default function RootLayout({
     <html lang="en" className={tenor.variable}>
       <body className="antialiased">
         <SmoothScroll>
+          <Navbar />
           <Grain />
           {children}
         </SmoothScroll>

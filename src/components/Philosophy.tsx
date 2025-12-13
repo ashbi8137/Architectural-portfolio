@@ -18,7 +18,7 @@ export default function Philosophy() {
     const lineScale = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
 
     return (
-        <section ref={containerRef} className={styles.section}>
+        <section ref={containerRef} className={styles.section} id="philosophy">
             <div className={styles.container}>
                 <div className={styles.leftColumn}>
                     <motion.h2

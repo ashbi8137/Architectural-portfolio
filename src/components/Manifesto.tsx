@@ -13,7 +13,7 @@ export default function Manifesto() {
     });
 
     return (
-        <section ref={containerRef} className={styles.manifestoSection}>
+        <section ref={containerRef} className={styles.manifestoSection} id="manifesto">
             <div className={styles.gridBackground}></div> {/* Architectural Grid */}
 
             <div className={styles.contentContainer}>

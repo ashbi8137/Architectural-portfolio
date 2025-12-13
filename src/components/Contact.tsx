@@ -58,7 +58,7 @@ export default function Contact() {
     };
 
     return (
-        <section className={styles.section}>
+        <section className={styles.section} id="contact">
             <div className={styles.container}>
                 <div className={styles.formSide}>
                     <motion.div
@@ -152,7 +152,12 @@ export default function Contact() {
                     viewport={{ once: true }}
                     transition={{ duration: 1 }}
                 >
-                    <Image src="/Architectural-portfolio/images/contact-lobby.png" alt="Contact Interior" fill style={{ objectFit: 'cover' }} />
+                    <Image
+                        src="/Architectural-portfolio/images/contact_minimal_design.png"
+                        alt="Minimalist Architecture"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                    />
                 </motion.div>
             </div>
 

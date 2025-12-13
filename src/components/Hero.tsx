@@ -43,7 +43,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} id="hero">
       {/* Background Image Slider with Slow Zoom */}
       <div className={styles.imageLayer}>
         {heroImages.map((src, index) => (
@@ -72,23 +72,7 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Logo in top-left corner */}
-      <Link href="/" className={styles.logoCorner} onClick={(e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }}>
-        <Image
-          src="/Architectural-portfolio/images/logo-icon-v1.png"
-          alt="Icon"
-          width={35}
-          height={35}
-          className={styles.logoImage}
-        />
-        <div className={styles.logoTextContainer}>
-          <div className={styles.logoTitle}>SHAMIL PUTHUSSERI</div>
-          <div className={styles.logoSubtitle}>ARCHITECTS</div>
-        </div>
-      </Link>
+
 
       {/* Content Layer with Masked Staggered Text */}
       <div className={styles.content}>

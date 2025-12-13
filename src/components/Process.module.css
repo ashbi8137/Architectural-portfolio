@@ -1,5 +1,6 @@
 .section {
-    padding: 10rem 2rem;
+    padding: 6rem 3rem 4rem 3rem;
+    /* Tighter padding, no bottom void */
     background-color: var(--surface);
     color: var(--foreground);
     position: relative;
@@ -7,117 +8,104 @@
 }
 
 .headingWrapper {
-    text-align: center;
-    margin-bottom: 8rem;
+    text-align: left;
+    margin-bottom: 3rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .heading {
-    font-size: clamp(3rem, 6vw, 6rem);
+    font-family: var(--font-tenor);
+    font-size: clamp(2rem, 4vw, 3rem);
     text-transform: uppercase;
-    font-weight: 200;
-    letter-spacing: -0.03em;
+    font-weight: 400;
+    letter-spacing: 0.05em;
     margin: 0;
     color: var(--foreground);
-    opacity: 0.9;
 }
 
 .stepsContainer {
     max-width: 1400px;
     margin: 0 auto;
-    position: relative;
-    padding-bottom: 10rem;
-}
-
-/* A subtle guide line to connect them visually, optional */
-.guideLine {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 1px;
-    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1), transparent);
-    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 Columns */
+    gap: 1.5rem;
+    /* Tight gap */
 }
 
 .stepWrapper {
-    display: flex;
-    margin-bottom: 12rem;
-    /* Airy spacing */
     position: relative;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* Subtle border card */
+    background-color: transparent;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.stepWrapper:hover {
+    border-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.02);
 }
 
 .stepContent {
-    width: 45%;
-    /* Less than half to allow interesting gaps */
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
 }
 
-/* Positioning Variants */
-.left {
-    justify-content: flex-start;
-    text-align: left;
-}
-
-.right {
-    justify-content: flex-end;
-    text-align: left;
-    /* Keep text left aligned for readability even on right side */
-}
-
-/* Specific styling for the content block */
 .number {
-    font-size: 8rem;
-    font-weight: 100;
-    line-height: 1;
-    color: rgba(0, 0, 0, 0.05);
-    /* Very subtle, architectural watermark */
-    position: absolute;
-    top: -4rem;
-    left: -2rem;
-    z-index: 0;
-    font-family: var(--font-geist-mono);
+    font-family: var(--font-tenor);
+    font-size: 1.2rem;
+    color: var(--accent);
+    font-weight: 600;
+    opacity: 0.8;
 }
 
 .title {
-    font-size: 2.5rem;
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 1;
+    font-family: var(--font-tenor);
+    font-size: 1.4rem;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: -0.01em;
+    margin: 0;
+    letter-spacing: 0.05em;
 }
 
 .desc {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #555;
-    position: relative;
-    z-index: 1;
-    max-width: 400px;
+    font-family: var(--font-tenor);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #444;
+    margin: 0;
+    opacity: 0.8;
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+    .stepsContainer {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2x2 Tablet */
+    }
+}
+
 @media (max-width: 768px) {
-    .guideLine {
-        left: 20px;
+    .section {
+        padding: 4rem 1.5rem;
+    }
+
+    .stepsContainer {
+        grid-template-columns: 1fr;
+        /* Stack Mobile */
+        gap: 1rem;
     }
 
     .stepWrapper {
-        flex-direction: column;
-        margin-bottom: 6rem;
-        padding-left: 3rem;
-        /* Indent from guideline */
-    }
-
-    .stepContent {
-        width: 100%;
-        text-align: left;
-    }
-
-    .number {
-        font-size: 5rem;
-        top: -2.5rem;
-        left: -1rem;
+        padding: 1.5rem;
     }
 }

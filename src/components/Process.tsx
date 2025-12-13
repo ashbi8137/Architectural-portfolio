@@ -28,33 +28,29 @@ const steps = [
 
 export default function Process() {
     return (
-        <section className={styles.section}>
+        <section className={styles.section} id="process">
             <div className={styles.headingWrapper}>
                 <h2 className={styles.heading}>The Journey</h2>
             </div>
 
             <div className={styles.stepsContainer}>
-                <div className={styles.guideLine}></div>
-
-                {steps.map((step, index) => {
-                    const isEven = index % 2 === 0;
-                    return (
-                        <motion.div
-                            key={index}
-                            className={`${styles.stepWrapper} ${isEven ? styles.left : styles.right}`}
-                            initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, margin: "-15%" }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                        >
-                            <div className={styles.stepContent}>
-                                <span className={styles.number}>{step.id}</span>
-                                <h3 className={styles.title}>{step.title}</h3>
-                                <p className={styles.desc}>{step.desc}</p>
-                            </div>
-                        </motion.div>
-                    )
-                })}
+                {steps.map((step, index) => (
+                    <motion.div
+                        key={index}
+                        className={styles.stepWrapper}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(0,0,0,0.05)" }}
+                    >
+                        <div className={styles.stepContent}>
+                            <span className={styles.number}>{step.id}</span>
+                            <h3 className={styles.title}>{step.title}</h3>
+                            <p className={styles.desc}>{step.desc}</p>
+                        </div>
+                    </motion.div>
+                ))}
             </div>
         </section>
     );
