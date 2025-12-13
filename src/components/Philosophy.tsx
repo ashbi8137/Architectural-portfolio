@@ -61,13 +61,17 @@ export default function Philosophy() {
                 <div className={styles.rightColumn}>
                     <motion.div
                         className={styles.imageWrapper}
-                        style={{ y: useTransform(scrollYProgress, [0, 1], [50, -50]) }}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
                     >
                         <Image src="/Architectural-portfolio/images/texture-light.png" alt="Light and Shadow" fill style={{ objectFit: 'cover' }} />
                     </motion.div>
                     <motion.div
                         className={styles.imageWrapper}
-                        style={{ y: useTransform(scrollYProgress, [0, 1], [0, -100]) }}
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         <Image src="/Architectural-portfolio/images/texture-concrete.png" alt="Concrete Texture" fill style={{ objectFit: 'cover' }} />
                     </motion.div>

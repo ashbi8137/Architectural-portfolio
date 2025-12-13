@@ -1,3 +1,5 @@
+/* --- PHILOSOPHY SECTION REDESIGN --- */
+
 .section {
     min-height: 100vh;
     background-color: var(--background);
@@ -7,7 +9,6 @@
     flex-direction: column;
     position: relative;
     z-index: 10;
-    /* Ensure it covers the sticky Hero */
 }
 
 .container {
@@ -26,71 +27,106 @@
 }
 
 .heading {
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 700;
-    margin-bottom: 2rem;
+    font-family: var(--font-tenor);
+    /* Aligned with other pages */
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    /* Bolder, Bigger */
+    font-weight: 400;
+    margin-bottom: 2.5rem;
     line-height: 1.1;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-left: 2px solid var(--accent);
+    /* Unique design element */
+    padding-left: 2rem;
 }
 
 .description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    max-width: 500px;
-    color: #555;
+    font-family: var(--font-tenor);
+    font-size: 1.25rem;
+    /* Increased readability */
+    line-height: 1.8;
+    max-width: 550px;
+    color: #333;
     margin-bottom: 3rem;
+    text-align: justify;
 }
 
 .phrases {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     margin-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 2rem;
 }
 
 .phrase {
+    font-family: var(--font-tenor);
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     display: flex;
     align-items: center;
-    gap: 1rem;
-}
-
-.phraseLine {
-    height: 1px;
-    background: var(--accent);
-    width: 0px;
-    /* Animated via inline style/motion */
+    gap: 1.5rem;
+    color: #1a1a1a;
 }
 
 .rightColumn {
     position: relative;
-    height: 600px;
+    height: auto;
+    min-height: 500px;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 3rem;
+    margin-top: 4rem;
 }
 
+/* Designed Image Borders */
 .imageWrapper {
-    position: absolute;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.imageWrapper:nth-child(1) {
-    width: 300px;
-    height: 400px;
-    top: 0;
-    left: 10%;
-    z-index: 1;
+    position: relative;
+    overflow: visible;
+    /* Allow border to sit outside */
+    flex: 1;
+    height: 450px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    /* Outer technical border */
+    padding: 10px;
+    /* Gap for inner frame */
+    transition: transform 0.6s ease;
 }
 
 .imageWrapper:nth-child(2) {
-    width: 350px;
-    height: 450px;
-    top: 100px;
-    right: 5%;
-    z-index: 2;
+    margin-top: 5rem;
+    /* Staggered */
+}
+
+/* Inner Image Container */
+.imageWrapper>img {
+    /* Using next/image styles usually, but targeting the image inside */
+    display: block;
+}
+
+/* Decorative Inner Border (The "Designed" Look) */
+.imageWrapper::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    /* Strong offset border */
+    z-index: -1;
+    transition: all 0.5s ease;
+}
+
+.imageWrapper:hover::after {
+    top: -15px;
+    left: -15px;
 }
 
 .journeyLine {
@@ -100,15 +136,14 @@
     height: 2px;
     background-color: var(--foreground);
     width: 0%;
-    /* Scroll progress */
 }
 
 /* Desktop Split Layout */
 @media (min-width: 1024px) {
     .container {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1.2fr 1fr;
+        /* Give text more space */
         gap: 6rem;
+        align-items: center;
     }
 }
-
-/* Mobile adjustments handled by grid defaults */

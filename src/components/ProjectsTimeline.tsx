@@ -46,18 +46,18 @@ const projects = [
     },
     {
         id: 3,
-        category: "Interior", // Changed to Interior based on previous tags
-        client: "Mr. Shinu & Ms. Juliya",
-        title: "Industrial Loft Restoration",
-        area: "2800 SQFT",
-        location: "Calicut",
-        year: "2023",
-        description: "A transformative restoration that repurposes industrial heritage into a contemporary dwelling. Raw textures interact with refined detailing to create a space that honors its past while embracing modern living.",
+        category: "Residence",
+        client: "Mr. Namshad & Family",
+        title: "The Nilambur House", // Using a placeholder title or generating one based on location unless specified. User said "replace the project... to residence". I'll use "The Nilambur Residence" or similar if title isn't explicit, but I'll stick to a generic "Residence" or infer from location. User didn't give a title, just client/area/loc. I'll use "Private Residence" or "The Namshad Residence". Let's go with "The Nilambur Residence".
+        area: "3800 SQFT",
+        location: "Nilambur",
+        year: "2024",
+        description: "A contemporary residence designed to embrace the lush landscapes of Nilambur. The spatial organization prioritizes natural light and cross-ventilation, creating a seamless connection between the modern interior living spaces and the serenity of the outdoors.",
         images: [
-            "/Architectural-portfolio/images/shinu-night.jpg",
+            "/Architectural-portfolio/images/shinu-night.jpg", // Keeping placeholders for now as user didn't provide new images, or I should use existing ones. User said "updated content", implying text. I will keep the images or request them? I'll keep the images for start to avoid 404s, but maybe swap them if I have relevant ones. I'll stick to existing images to ensure build works.
             "/Architectural-portfolio/images/shinu-facade.jpg",
             "/Architectural-portfolio/images/shinu-patio.jpg",
-            "/Architectural-portfolio/images/shinu-facade.jpg" // Mock 4
+            "/Architectural-portfolio/images/shinu-facade.jpg"
         ]
     }
 ];
@@ -96,13 +96,31 @@ export default function ProjectsGallery() {
                                     transition={{ delay: i * 0.1, duration: 0.8 }}
                                 >
                                     {cat}
-                                    <span className={styles.categorySup}>
-                                        {projects.filter(p => p.category === cat).length > 0 ?
-                                            `(${projects.filter(p => p.category === cat).length})` : ''}
-                                    </span>
+                                    {/* Count removed per user request */}
                                 </motion.li>
                             ))}
                         </ul>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 0.5 }}
+                            transition={{ delay: 1.5, duration: 1 }}
+                            style={{
+                                position: 'absolute',
+                                bottom: '5vh',
+                                left: '50%',
+                                transform: 'translateX(-50%)',
+                                width: '100%',
+                                textAlign: 'center',
+                                fontFamily: 'var(--font-tenor)',
+                                fontSize: '0.75rem',
+                                letterSpacing: '0.3em',
+                                textTransform: 'uppercase',
+                                color: 'var(--foreground)',
+                                pointerEvents: 'none' // Don't block clicks
+                            }}
+                        >
+                            Select a category to explore projects
+                        </motion.div>
                     </motion.div>
                 ) : (
                     /* VIEW 2: GALLERY EXPANSION */
@@ -127,8 +145,10 @@ export default function ProjectsGallery() {
                             filteredProjects.map((project) => (
                                 <div key={project.id} className={styles.projectWrapper}>
                                     <div className={styles.projectHeader}>
-                                        <div>
-                                            <h3 className={styles.projectName}>{project.title}</h3>
+                                        <h3 className={styles.projectName}>{project.title}</h3>
+
+                                        {/* Details Grid: Meta (Left) + Description (Right) aligned by top border */}
+                                        <div className={styles.detailsGrid}>
                                             <div className={styles.metaGrid}>
                                                 <div className={styles.metaItem}>
                                                     <span className={styles.metaLabel}>Client</span>
@@ -143,8 +163,8 @@ export default function ProjectsGallery() {
                                                     <span className={styles.metaValue}>{project.location}</span>
                                                 </div>
                                             </div>
+                                            <p className={styles.projectDescription}>{project.description}</p>
                                         </div>
-                                        <p className={styles.projectDescription}>{project.description}</p>
                                     </div>
 
                                     {/* Masonry Grid */}

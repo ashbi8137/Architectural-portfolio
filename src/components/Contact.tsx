@@ -22,16 +22,24 @@ export default function Contact() {
         const { name, email, subject, message } = formData;
 
         try {
-            // NOTE: Added '/Architectural-portfolio' because of basePath in next.config.ts
-            const response = await fetch('/Architectural-portfolio/api/contact', {
+            const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
-                body: JSON.stringify({ name, email, subject, message }),
+                body: JSON.stringify({
+                    access_key: "a262dc5c-e6d3-4f05-b541-b8ae8874153e", // Web3Forms Key
+                    name,
+                    email,
+                    subject,
+                    message
+                }),
             });
 
-            if (response.ok) {
+            const result = await response.json();
+
+            if (response.ok && result.success) {
                 setStatus('success');
                 // Reset after 5 seconds
                 setTimeout(() => {
@@ -39,12 +47,13 @@ export default function Contact() {
                     setFormData({ name: "", email: "", subject: "Residential", message: "" });
                 }, 5000);
             } else {
+                console.error("Web3Forms Error:", result);
                 throw new Error('Failed to send');
             }
         } catch (error) {
             console.error(error);
-            setStatus('idle'); // Or 'error' state if you implemented one
-            alert("Failed to send message. Please try again or email directly.");
+            setStatus('idle');
+            alert("Failed to send message. Please check your connection.");
         }
     };
 
@@ -152,7 +161,7 @@ export default function Contact() {
                     <div>
                         <strong>Shamil Puthusseri Architects</strong>
                         <br />
-                        <span style={{ opacity: 0.6 }}>contact@shamilputhusseri.com</span>
+                        <span style={{ opacity: 0.6 }}>shamilputhusheri@gmail.com</span>
                     </div>
 
                     <div className={styles.socials}>
