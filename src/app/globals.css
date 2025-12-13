@@ -53,13 +53,33 @@ h6 {
   transform: scale(1.5);
 }
 
-body,
-html,
-a,
-button,
-input,
-textarea {
-  cursor: none !important;
+/* Cursor Logic: Desktop Only */
+@media (min-width: 768px) {
+
+  body,
+  html,
+  a,
+  button,
+  input,
+  textarea {
+    cursor: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .customCursor {
+    display: none !important;
+  }
+
+  /* Ensure default cursor returns on mobile */
+  body,
+  html,
+  a,
+  button,
+  input,
+  textarea {
+    cursor: auto !important;
+  }
 }
 
 body {

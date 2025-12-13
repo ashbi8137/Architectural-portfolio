@@ -148,22 +148,26 @@ export default function ProjectsGallery() {
                                         <h3 className={styles.projectName}>{project.title}</h3>
 
                                         {/* Details Grid: Meta (Left) + Description (Right) aligned by top border */}
-                                        <div className={styles.detailsGrid}>
-                                            <div className={styles.metaGrid}>
-                                                <div className={styles.metaItem}>
-                                                    <span className={styles.metaLabel}>Client</span>
-                                                    <span className={styles.metaValue}>{project.client}</span>
+                                        <div className={styles.projectInfoContainer}>
+                                            <div className={styles.infoRow}>
+                                                <div className={styles.infoItem}>
+                                                    <span className={styles.infoLabel}>Client</span>
+                                                    <span className={styles.infoValue}>{project.client}</span>
                                                 </div>
-                                                <div className={styles.metaItem}>
-                                                    <span className={styles.metaLabel}>Area</span>
-                                                    <span className={styles.metaValue}>{project.area}</span>
-                                                </div>
-                                                <div className={styles.metaItem}>
-                                                    <span className={styles.metaLabel}>Location</span>
-                                                    <span className={styles.metaValue}>{project.location}</span>
+                                                <div className={styles.infoItem}>
+                                                    <span className={styles.infoLabel}>Area</span>
+                                                    <span className={styles.infoValue}>{project.area}</span>
                                                 </div>
                                             </div>
-                                            <p className={styles.projectDescription}>{project.description}</p>
+
+                                            <div className={styles.locationRow}>
+                                                <span className={styles.infoLabel}>Location</span>
+                                                <span className={styles.infoValue}>{project.location}</span>
+                                            </div>
+
+                                            <div className={styles.descriptionRow}>
+                                                <p className={styles.projectDescription}>{project.description}</p>
+                                            </div>
                                         </div>
                                     </div>
 

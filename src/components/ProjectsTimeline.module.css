@@ -149,38 +149,40 @@
     line-height: 1.1;
 }
 
-/* New Container for aligned content below line */
-.detailsGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* 50/50 Split */
-    align-items: start;
-    gap: 4rem;
+/* New Project Info Layout */
+.projectInfoContainer {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    /* The Line is now here */
     padding-top: 2rem;
-    /* Spacing from line to content */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 600px;
+    /* Constrain width for readability like in screenshot */
 }
 
-/* Structured Metadata Grid */
-.metaGrid {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    /* Fit content columns */
-    gap: 3rem;
-    /* Removed padding/border as it's now handled by parent */
-    border: none;
-    padding: 0;
-    margin: 0;
+/* Row 1: Client & Area */
+.infoRow {
+    display: flex;
+    gap: 4rem;
+    /* Generous spacing between client and area */
+    align-items: flex-start;
 }
 
-.metaItem {
+.infoItem {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-.metaLabel {
+/* Row 2: Location */
+.locationRow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Common Text Styles */
+.infoLabel {
     font-family: var(--font-tenor);
     font-size: 0.75rem;
     text-transform: uppercase;
@@ -188,11 +190,18 @@
     color: #888;
 }
 
-.metaValue {
+.infoValue {
     font-family: var(--font-tenor);
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #1a1a1a;
     letter-spacing: 0.05em;
+    white-space: nowrap;
+    /* Ensure single line for location as requested */
+}
+
+/* Row 3: Description */
+.descriptionRow {
+    margin-top: 1rem;
 }
 
 .projectDescription {
@@ -202,7 +211,6 @@
     color: #444;
     text-align: justify;
     padding-top: 0;
-    /* Reset padding, layout handles alignment now */
 }
 
 /* Masonry Image Grid */
