@@ -13,18 +13,25 @@
 
 /* Logo Styles */
 .logoCorner {
-    position: absolute;
-    top: 2.5rem;
-    left: 2.5rem;
+    position: fixed;
+    /* Sticky on Scroll - as requested */
+    top: 2rem;
+    left: 2rem;
     z-index: 50;
     /* Above overlay */
     display: flex;
     align-items: center;
 }
 
+@media (max-width: 768px) {
+    .logoCorner {
+        top: 1rem;
+        left: 1rem;
+    }
+}
+
 .logoImage {
     height: 30px;
-    /* Reduced from 45px */
     width: auto;
     object-fit: contain;
     /* Use Screen mode to remove black background from the generated icon */

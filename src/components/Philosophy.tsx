@@ -36,7 +36,7 @@ export default function Philosophy() {
                         transition={{ delay: 0.2, duration: 0.8 }}
                         className={styles.description}
                     >
-                        Aurora Architects believes in creating spaces that resonate with their environment.
+                        Shamil Puthusseri Architects believes in creating spaces that resonate with their environment.
                         Our approach is rooted in a deep understanding of context, materiality, and the human experience.
                         We strip away the unnecessary to reveal the essence of habitation.
                     </motion.p>
