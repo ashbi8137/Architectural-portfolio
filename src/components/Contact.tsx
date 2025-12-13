@@ -176,7 +176,7 @@ export default function Contact() {
                     </div>
                 </div>
                 <div style={{ fontSize: '0.8rem', opacity: 0.4, marginTop: '1rem' }}>
-                    © {new Date().getFullYear()} Aurora Architects. All rights reserved.
+                    © {new Date().getFullYear()} Shamil Puthusseri Architects. All rights reserved.
                 </div>
             </footer>
         </section>
