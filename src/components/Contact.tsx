@@ -7,6 +7,7 @@ import styles from "./Contact.module.css";
 import { useState } from "react";
 
 export default function Contact() {
+    const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -14,15 +15,37 @@ export default function Contact() {
         message: ""
     });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setStatus('sending');
+
         const { name, email, subject, message } = formData;
 
-        // Construct mailto link
-        const mailtoLink = `mailto:shamilputhusheri@gmail.com?subject=Inquiry: ${subject}&body=Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+        try {
+            // NOTE: Added '/Architectural-portfolio' because of basePath in next.config.ts
+            const response = await fetch('/Architectural-portfolio/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, subject, message }),
+            });
 
-        // Open email client
-        window.location.href = mailtoLink;
+            if (response.ok) {
+                setStatus('success');
+                // Reset after 5 seconds
+                setTimeout(() => {
+                    setStatus('idle');
+                    setFormData({ name: "", email: "", subject: "Residential", message: "" });
+                }, 5000);
+            } else {
+                throw new Error('Failed to send');
+            }
+        } catch (error) {
+            console.error(error);
+            setStatus('idle'); // Or 'error' state if you implemented one
+            alert("Failed to send message. Please try again or email directly.");
+        }
     };
 
     return (
@@ -96,8 +119,18 @@ export default function Contact() {
                                 whileTap={{ scale: 0.95 }}
                                 className={styles.button}
                                 type="submit"
+                                disabled={status === 'sending' || status === 'success'}
+                                style={{
+                                    opacity: status === 'sending' ? 0.7 : 1,
+                                    cursor: status === 'success' ? 'default' : 'pointer',
+                                    backgroundColor: status === 'success' ? '#4CAF50' : undefined,
+                                    color: status === 'success' ? 'white' : undefined,
+                                    border: status === 'success' ? 'none' : undefined
+                                }}
                             >
-                                Send Message
+                                {status === 'idle' && "Send Message"}
+                                {status === 'sending' && "Sending..."}
+                                {status === 'success' && "Message Sent!"}
                             </motion.button>
                         </form>
                     </motion.div>

@@ -1,269 +1,387 @@
+/* --- ARCHITECTURE GALLERY LAYOUT --- */
+
 .section {
-    background-color: var(--surface);
-    color: var(--foreground);
-    padding: 8rem 2rem;
     position: relative;
-    z-index: 20;
+    min-height: 100vh;
+    background-color: var(--background);
+    padding: 0;
+    color: var(--foreground);
+    overflow: hidden;
 }
 
-.heading {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 8rem;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-}
-
-.timeline {
+/* Category Index View */
+.categoryContainer {
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 12rem;
-    /* Increased gap for larger cards */
-    max-width: 1400px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.projectRow {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 4rem;
+    justify-content: center;
     align-items: center;
-}
-
-/* Image Cluster Layout */
-.imageCluster {
+    z-index: 10;
     position: relative;
-    height: 850px;
-    /* INCREASED: Massive size as requested */
-    width: 100%;
 }
 
-.imageWrapperInner {
+.categoryList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+    /* Responsive gap */
+    text-align: center;
+    list-style: none;
+    /* Reset list style */
+    padding: 0;
+}
+
+.categoryItem {
+    font-family: var(--font-tenor);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    /* Large Architectural Type */
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(26, 26, 26, 0.4);
+    /* Faded by default */
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+.categoryItem:hover {
+    color: var(--foreground);
+    transform: scale(1.02);
+    letter-spacing: 0.1em;
+}
+
+.categorySup {
+    font-size: 1rem;
+    vertical-align: super;
+    margin-left: 0.5rem;
+    opacity: 0.6;
+}
+
+/* Gallery View (Expanded) */
+.gallerySection {
+    min-height: 100vh;
+    padding: 0 5% 4rem;
+    /* Side padding */
+}
+
+.galleryHeader {
+    position: sticky;
+    top: 0;
+    /* Stick to top edge */
+    padding-top: 6rem;
+    /* Space for fixed logo */
+    padding-bottom: 2rem;
+    background-color: var(--background);
+    /* Solid background to cover scrolled content */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 20;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /* Subtle divider */
+}
+
+.backButton {
+    font-family: var(--font-tenor);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+    padding-bottom: 5px;
+}
+
+.backButton:hover {
+    border-bottom-color: currentColor;
+}
+
+.activeCategoryTitle {
+    font-family: var(--font-tenor);
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+/* Single Project Layout */
+.projectWrapper {
+    margin-bottom: 12rem;
+    /* Space between projects */
+}
+
+.projectHeader {
+    margin-bottom: 4rem;
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 50/50 Split for Header Info */
+    gap: 4rem;
+    align-items: start;
+}
+
+.projectName {
+    font-family: var(--font-tenor);
+    font-size: 3rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    line-height: 1;
+}
+
+/* Structured Metadata Grid */
+.metaGrid {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    /* Fit content columns */
+    gap: 3rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.metaItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.metaLabel {
+    font-family: var(--font-tenor);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #888;
+}
+
+.metaValue {
+    font-family: var(--font-tenor);
+    font-size: 1rem;
+    color: #1a1a1a;
+    letter-spacing: 0.05em;
+}
+
+.projectDescription {
+    font-family: var(--font-tenor);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #444;
+    text-align: justify;
+    padding-top: 1rem;
+    /* Align with meta grid top border visually */
+}
+
+/* Masonry Image Grid */
+.imageGrid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(300px, auto);
+    /* Flexible height rows */
+    gap: 1.5rem;
+}
+
+.gridItem {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    border-radius: 2px;
-    /* Architectural Border Effect */
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-    display: block;
     cursor: zoom-in;
+    /* Outer Structural Border */
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: border-color 0.4s ease;
 }
 
-.imageWrapperInner::after {
+.gridItem:hover {
+    border-color: rgba(0, 0, 0, 0.6);
+    /* Darkens on hover */
+}
+
+/* Inner "Technical" Border (Architectural Overlay) */
+.gridItem::after {
     content: '';
     position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    /* Subtle inner light frame */
+    z-index: 5;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+.gridItem:hover::after {
     top: 10px;
     left: 10px;
     right: 10px;
     bottom: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    z-index: 2;
-    pointer-events: none;
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Asymmetrical Spans tailored for "Editorial" look */
+.gridItem:nth-child(1) {
+    grid-column: span 12;
+    height: 80vh;
+    /* Hero Image */
+}
+
+/* Row 2: Asymmetrical (Original) */
+.gridItem:nth-child(2) {
+    grid-column: span 5;
+    height: 50vh;
+}
+
+.gridItem:nth-child(3) {
+    grid-column: span 7;
+    height: 50vh;
+}
+
+/* Row 3: Symmetrical (Matched Widths & Top Aligned) */
+/* Row 3: Symmetrical (Matched Widths & Top Aligned) */
+.gridItem:nth-child(4) {
+    grid-column: span 6;
+    height: 60vh;
+}
+
+.gridItem:nth-child(5) {
+    grid-column: span 6;
+    height: 60vh;
+}
+
+/* Row 4: Finale (If 6th item exists) */
+.gridItem:nth-child(6) {
+    grid-column: span 12;
+    height: 70vh;
+    margin-top: 1.5rem;
+    /* Gap consistency */
+}
+
+/* Default remaining items */
+.gridItem:nth-child(n+7) {
+    grid-column: span 6;
+    height: 50vh;
 }
 
 .image {
     object-fit: cover;
-    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform 0.8s ease-out;
 }
 
-.imageCluster:hover .image {
-    transform: scale(1.02);
+.gridItem:hover .image {
+    transform: scale(1.03);
+    /* Subtle zoom */
 }
 
-/* Main Image */
-.mainImageWrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 85%;
-    /* INCREASED width */
-    height: 75%;
-    /* INCREASED height */
-    z-index: 2;
-    overflow: hidden;
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
-    /* Deeper shadow */
-}
-
-/* Detail 1 - Top Right */
-.detailImage1 {
-    position: absolute;
-    top: 0;
-    right: 0;
-    /* Pushed to edge */
-    width: 35%;
-    height: 40%;
-    z-index: 1;
-    overflow: hidden;
-}
-
-/* Detail 2 - Bottom Left */
-.detailImage2 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    /* Pushed to edge */
-    width: 40%;
-    height: 35%;
-    z-index: 3;
-    overflow: hidden;
-    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.3);
-}
-
-
-.content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    z-index: 10;
-}
-
-.projectTitle {
-    font-family: var(--font-libre);
-    /* Luxury Serif */
-    font-size: clamp(3rem, 6vw, 4.5rem);
-    /* EVEN LARGER Typography */
-    font-weight: 300;
-    margin-bottom: 2rem;
-    line-height: 1.1;
-    color: #111;
-    letter-spacing: -0.03em;
-}
-
-.secondName {
-    display: block;
-    margin-top: 0.2rem;
-    /* Optional: Diff size or style if needed, currently inheriting */
-}
-
-.projectMeta {
-    font-family: var(--font-libre);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: #666;
-    margin-bottom: 2.5rem;
-    display: inline-block;
-    border-top: 1px solid #ddd;
-    padding-top: 1rem;
-}
-
-.description {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    max-width: 500px;
-    color: #444;
-    font-weight: 300;
-}
-
-/* LIGHTBOX MODAL */
+/* LIGHTBOX (MODAL STYLE) */
 .lightboxOverlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.7);
+    /* Darker backdrop */
+    backdrop-filter: blur(10px);
+    /* Frosted glass effect */
     z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: zoom-out;
-    padding: 2rem;
+    cursor: auto;
 }
 
 .lightboxContent {
     position: relative;
-    width: 95vw;
-    height: 95vh;
+    /* "Little bigger in size" but NOT full screen */
+    width: 90vw;
+    height: 85vh;
     max-width: 1600px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    /* Deep shadow */
 }
 
 .lightboxImage {
     object-fit: contain;
+    /* Keep original ratio and quality, do NOT crop */
 }
 
-/* Desktop Alternating Layout */
-@media (min-width: 1024px) {
-    .projectRow {
-        grid-template-columns: 1.5fr 1fr;
-        /* 60% Image / 40% Text */
-        gap: 6rem;
-    }
-
-    /* Even Rows: Image on Right */
-    .projectRow:nth-child(even) .imageCluster {
-        order: 2;
-    }
-
-    .projectRow:nth-child(even) .content {
-        order: 1;
-        align-items: flex-end;
-        text-align: right;
-    }
+/* Modern Close Button */
+.closeButton {
+    position: absolute;
+    top: -50px;
+    /* Float above the image */
+    right: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* Circle */
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
 }
 
-@media (max-width: 768px) {
-    .section {
-        padding: 4rem 1.5rem;
+.closeButton:hover {
+    background: white;
+    color: black;
+    transform: rotate(90deg);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .projectHeader {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
-    .heading {
-        margin-bottom: 4rem;
+    .metaGrid {
+        gap: 1.5rem;
+        grid-template-columns: 1fr 1fr;
+        /* 2 columns on mobile */
     }
 
-    .timeline {
-        gap: 6rem;
+    .gridItem:nth-child(n) {
+        grid-column: span 12 !important;
+        /* Stack all on mobile */
+        height: 50vh !important;
     }
 
-    .projectRow {
-        gap: 3rem;
-    }
-
-    .imageCluster {
-        height: 400px;
-        /* More compact representation */
-        margin-bottom: 1rem;
-    }
-
-    .mainImageWrapper {
-        width: 80%;
-        height: 65%;
-    }
-
-    .detailImage1,
-    .detailImage2 {
-        display: none;
-        /* Simplification: Hide details on very small screens to focus on main image vs text? 
-           OR keep them but make them smaller. User asked for "centered" and "alignment".
-           Let's keep them but ensure they don't break. */
-        display: block;
-        width: 30%;
-        height: 35%;
-    }
-
-    .content {
-        align-items: center;
-        text-align: center;
-    }
-
-    .projectTitle {
+    .categoryItem {
         font-size: 2.5rem;
-        margin-bottom: 1rem;
     }
 
-    .projectMeta {
-        justify-content: center;
-        margin-bottom: 1.5rem;
+    .gallerySection {
+        padding: 0 1.5rem 4rem;
     }
 
-    .description {
-        text-align: center;
-        margin: 0 auto;
-        font-size: 1rem;
+    .galleryHeader {
+        padding-top: 5rem;
+    }
+
+    .closeButton {
+        top: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        /* Visible on mobile */
+    }
+
+    .lightboxContent {
+        width: 100vw;
+        height: 100vh;
+        /* Fullscreen on mobile */
     }
 }

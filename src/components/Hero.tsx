@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import styles from "./Hero.module.css";
 
@@ -72,7 +73,10 @@ export default function Hero() {
       </div>
 
       {/* Logo in top-left corner */}
-      <div className={styles.logoCorner}>
+      <Link href="/" className={styles.logoCorner} onClick={(e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }}>
         <Image
           src="/Architectural-portfolio/images/logo-icon-v1.png"
           alt="Icon"
@@ -84,7 +88,7 @@ export default function Hero() {
           <div className={styles.logoTitle}>SHAMIL PUTHUSSERI</div>
           <div className={styles.logoSubtitle}>ARCHITECTS</div>
         </div>
-      </div>
+      </Link>
 
       {/* Content Layer with Masked Staggered Text */}
       <div className={styles.content}>
