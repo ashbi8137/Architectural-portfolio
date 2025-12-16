@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Instagram, Linkedin, Twitter } from "lucide-react";
+import { Instagram, Linkedin, Twitter, MessageCircle, MapPin } from "lucide-react";
 import styles from "./Contact.module.css";
 import { useState } from "react";
 
@@ -168,8 +168,30 @@ export default function Contact() {
                     </div>
 
                     <div className={styles.socials}>
-                        <a href="#" className={styles.socialLink}><Instagram size={20} /></a>
-                        <a href="#" className={styles.socialLink}><Linkedin size={20} /></a>
+                        <a
+                            href="https://www.instagram.com/ar.shamil_/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.socialLink}
+                        >
+                            <Instagram size={20} />
+                        </a>
+                        <a
+                            href="https://wa.me/919567409124?text=I%20have%20an%20enquiry"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.socialLink}
+                        >
+                            <MessageCircle size={20} />
+                        </a>
+                        <a
+                            href="https://www.google.com/maps/search/?api=1&query=Shamil+Puthusseri+Architects+Areekode"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.socialLink}
+                        >
+                            <MapPin size={20} />
+                        </a>
                         <a href="#" className={styles.socialLink}>Behance</a>
                     </div>
                 </div>
