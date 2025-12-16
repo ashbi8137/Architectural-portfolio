@@ -68,9 +68,7 @@ export default function Contact() {
                         transition={{ duration: 0.8 }}
                     >
                         <h2 className={styles.heading}>Let's shape your next space.</h2>
-                        <p className={styles.subheading}>
-                            For collaborations, commissions, and consultations with Ar Shamil P A.
-                        </p>
+                        For collaborations, commissions, and consultations with Ar Shamil Puthusserri.
 
                         <form className={styles.form} onSubmit={handleSubmit}>
                             <div className={styles.inputGroup}>

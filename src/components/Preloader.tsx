@@ -12,7 +12,7 @@ export default function Preloader() {
         const timer = setTimeout(() => {
             setIsLoading(false);
             window.scrollTo(0, 0); // Reset scroll on entry
-        }, 2200);
+        }, 5000);
 
         return () => clearTimeout(timer);
     }, []);
@@ -40,16 +40,16 @@ export default function Preloader() {
                     }}
                 >
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, y: -50 }}
-                        transition={{ duration: 1, ease: "easeOut" }}
+                        initial={{ clipPath: "inset(0 100% 0 0)", opacity: 0.5 }}
+                        animate={{ clipPath: "inset(0 0% 0 0)", opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 4, ease: [0.22, 1, 0.36, 1] }} // Smooth editorial ease
                         style={{
                             position: 'relative',
                             width: '80%',
                             maxWidth: '500px',
                             height: 'auto',
-                            aspectRatio: '3/1' // Approximate for text logo
+                            aspectRatio: '3/1'
                         }}
                     >
                         <Image

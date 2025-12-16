@@ -55,7 +55,7 @@ export default function Navbar() {
             <nav className={styles.navbar}>
                 {/* LEFT: BRAND */}
                 <div className={styles.brand}>
-                    SHAMIL PUTHUSSERI
+                    {/* Brand text removed per user request */}
                 </div>
 
                 {/* CENTER: MENU TRIGGER */}
