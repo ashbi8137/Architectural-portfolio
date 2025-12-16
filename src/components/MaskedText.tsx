@@ -20,7 +20,9 @@ export default function MaskedText({ children, className, delay = 0 }: MaskedTex
                 flexWrap: 'wrap',
                 gap: '0.25em',
                 lineHeight: 1.1, // Tight line height usually looks better for this
-                overflow: 'hidden'
+                overflow: 'hidden',
+                justifyContent: 'center',
+                textAlign: 'center'
             }}
         >
             {words.map((word, i) => (

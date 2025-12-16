@@ -1,4 +1,4 @@
-@import './cursor.css';
+/* @import './cursor.css'; Removed */
 
 :root {
   /* Color Palette */
@@ -28,60 +28,6 @@ h6 {
   letter-spacing: 0.08em;
   /* Tighter for Sans */
   font-weight: 400;
-}
-
-.customCursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  background-color: transparent;
-  border: 1px solid black;
-  /* Architectural Arrow (Triangle pointing Top-Left) */
-  clip-path: polygon(0% 0%, 70% 100%, 100% 70%);
-  background-color: var(--accent);
-  pointer-events: none;
-  z-index: 9999;
-  /* Tip at 0,0 requires different translate logic or just top/left 0 */
-  transform: translate(0, 0);
-  transition: width 0.2s ease, height 0.2s ease;
-  mix-blend-mode: normal;
-}
-
-.customCursor.hovering {
-  transform: scale(1.5);
-}
-
-/* Cursor Logic: Desktop Only */
-@media (min-width: 768px) {
-
-  body,
-  html,
-  a,
-  button,
-  input,
-  textarea,
-  [role="button"],
-  .pointer {
-    cursor: none !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .customCursor {
-    display: none !important;
-  }
-
-  /* Ensure default cursor returns on mobile */
-  body,
-  html,
-  a,
-  button,
-  input,
-  textarea {
-    cursor: auto !important;
-  }
 }
 
 body {
@@ -115,7 +61,8 @@ body {
   font-family: var(--font-main), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* cursor none handled above */
+  /* Cursor Logic: Desktop Only - Removed */
+  /* Default cursor applies */
 }
 
 /* Smooth scrolling for anchor links */

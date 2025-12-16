@@ -3,7 +3,6 @@ import Philosophy from "@/components/Philosophy";
 import ProjectsTimeline from "@/components/ProjectsTimeline";
 // Materiality removed per user request
 import Manifesto from "@/components/Manifesto";
-import Process from "@/components/Process";
 import Impact from "@/components/Impact";
 import Contact from "@/components/Contact";
 import TransitionStrip from "@/components/TransitionStrip";
@@ -13,14 +12,12 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Cursor />
       <Hero />
       <Philosophy />
       <ProjectsTimeline />
       {/* Materiality removed */}
       <TransitionStrip />
       <Manifesto />
-      <Process />
       <Impact />
       <Contact />
     </main>

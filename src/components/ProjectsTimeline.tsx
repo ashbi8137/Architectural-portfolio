@@ -184,7 +184,7 @@ export default function ProjectsGallery() {
                                                 transition={{ duration: 0.8, delay: idx * 0.1 }}
                                                 onClick={() => setSelectedImage(img)}
                                             >
-                                                <LiquidImage
+                                                <Image
                                                     src={img}
                                                     alt={`${project.title} view ${idx + 1}`}
                                                     fill

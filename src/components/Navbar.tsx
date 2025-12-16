@@ -10,7 +10,6 @@ const navItems = [
     { name: "Philosophy", href: "#philosophy" },
     { name: "Projects", href: "#projects" },
     { name: "Vision", href: "#manifesto" },
-    { name: "Process", href: "#process" },
     { name: "Contact", href: "#contact" },
 ];
 
