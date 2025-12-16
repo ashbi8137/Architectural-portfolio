@@ -6,7 +6,6 @@ import Manifesto from "@/components/Manifesto";
 import Impact from "@/components/Impact";
 import Contact from "@/components/Contact";
 import TransitionStrip from "@/components/TransitionStrip";
-import Cursor from "@/components/Cursor";
 import styles from "./page.module.css";
 
 export default function Home() {
