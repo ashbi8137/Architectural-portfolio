@@ -185,14 +185,13 @@ export default function Contact() {
                             <MessageCircle size={20} />
                         </a>
                         <a
-                            href="https://www.google.com/maps/search/?api=1&query=Shamil+Puthusseri+Architects+Areekode"
+                            href="https://www.google.com/maps/place/11%C2%B014'24.2%22N+76%C2%B004'42.6%22E/@11.240053,76.0778549,19z/data=!3m1!4b1!4m13!1m8!3m7!1s0x3ba6387fb4487ab3:0xea5904bc0296aebc!2sPoovathikkal,+Urangattiri,+Kerala+673639!3b1!8m2!3d11.2376297!4d76.0892261!16s%2Fg%2F1232p55jd!3m3!8m2!3d11.240053!4d76.0785?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.socialLink}
                         >
                             <MapPin size={20} />
                         </a>
-                        <a href="#" className={styles.socialLink}>Behance</a>
                     </div>
                 </div>
                 <div style={{ fontSize: '0.8rem', opacity: 0.4, marginTop: '1rem' }}>
