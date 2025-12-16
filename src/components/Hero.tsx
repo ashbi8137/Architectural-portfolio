@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import styles from "./Hero.module.css";
+import MaskedText from "./MaskedText";
 
 const heroImages = [
   "/Architectural-portfolio/images/shinu-night.jpg",
@@ -77,38 +78,26 @@ export default function Hero() {
       {/* Content Layer with Masked Staggered Text */}
       <div className={styles.content}>
 
-        <motion.div
-          className={styles.textContent}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {/* Brand Name - Restored */}
-          <div className={styles.maskContainer}>
-            <motion.h1 variants={textRevealVariants} className={styles.brandName}>
-              SHAMIL PUTHUSSERI
-            </motion.h1>
+        <div className={styles.textContent}>
+          {/* Brand Name */}
+          <h1 className={styles.brandName} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <MaskedText delay={0.2} className={styles.brandName}>SHAMIL PUTHUSSERI</MaskedText>
+            <MaskedText delay={0.4} className={styles.subBrand}>ARCHITECTS</MaskedText>
+          </h1>
+
+          <div className={styles.separatorContainer}>
+            <motion.div
+              className={styles.separator}
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1, delay: 0.6, ease: "easeInOut" }}
+            />
           </div>
 
-          <div className={styles.maskContainer}>
-            <motion.h2 variants={textRevealVariants} className={styles.subBrand}>
-              ARCHITECTS
-            </motion.h2>
-          </div>
-
-          <motion.div
-            variants={textRevealVariants}
-            className={styles.separatorContainer}
-          >
-            <div className={styles.separator} />
-          </motion.div>
-
-          <div className={styles.maskContainer}>
-            <motion.p variants={textRevealVariants} className={styles.tagline}>
-              Timeless. Contextual. Sustainable.
-            </motion.p>
-          </div>
-        </motion.div>
+          <MaskedText delay={0.8} className={styles.tagline}>
+            Timeless. Contextual. Sustainable.
+          </MaskedText>
+        </div>
       </div>
 
       {/* Minimalist Tech Elements */}

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./ProjectsTimeline.module.css";
+import LiquidImage from "./LiquidImage";
 
 // Updated Data Structure with Categories
 const projects = [
@@ -183,7 +184,7 @@ export default function ProjectsGallery() {
                                                 transition={{ duration: 0.8, delay: idx * 0.1 }}
                                                 onClick={() => setSelectedImage(img)}
                                             >
-                                                <Image
+                                                <LiquidImage
                                                     src={img}
                                                     alt={`${project.title} view ${idx + 1}`}
                                                     fill

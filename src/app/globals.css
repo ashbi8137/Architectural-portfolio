@@ -61,7 +61,9 @@ h6 {
   a,
   button,
   input,
-  textarea {
+  textarea,
+  [role="button"],
+  .pointer {
     cursor: none !important;
   }
 }

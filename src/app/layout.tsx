@@ -18,6 +18,9 @@ import SmoothScroll from "@/components/SmoothScroll";
 import Grain from "@/components/Grain";
 import Navbar from "@/components/Navbar";
 
+import Preloader from "@/components/Preloader";
+import StatusBar from "@/components/StatusBar";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,6 +29,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={tenor.variable}>
       <body className="antialiased">
+        <Preloader />
+        <StatusBar />
         <SmoothScroll>
           <Navbar />
           <Grain />

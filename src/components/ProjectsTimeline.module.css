@@ -387,22 +387,25 @@
         gap: 2rem;
     }
 
-    .metaGrid {
+    .projectInfoContainer {
+        padding-top: 1.5rem;
         gap: 1.5rem;
-        grid-template-columns: 1fr 1fr;
-        /* 2 columns on mobile */
     }
 
-    .gridItem:nth-child(n) {
-        grid-column: span 12 !important;
-        /* Stack all on mobile */
-        height: 50vh !important;
+    .infoRow {
+        gap: 1.5rem;
+        /* Reduce large 4rem gap to fit both items */
+        justify-content: flex-start;
     }
 
-    .categoryItem {
-        font-size: 2.5rem;
+    .infoValue {
+        font-size: 0.9rem;
+        /* Slightly smaller for tight spaces */
+        white-space: normal;
+        /* Allow wrapping if absolutely needed, though row implies single line */
     }
 
+    /* Ensure Gallery Logic remains */
     .gallerySection {
         padding: 0 1.5rem 4rem;
     }
