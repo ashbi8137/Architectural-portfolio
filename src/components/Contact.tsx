@@ -217,7 +217,7 @@ export default function Contact() {
                                 <a href="https://wa.me/919567409124?text=I%20have%20an%20enquiry" target="_blank" rel="noopener noreferrer" className={styles.socialCircle} title="WhatsApp">
                                     <MessageCircle size={20} strokeWidth={1.5} />
                                 </a>
-                                <a href="https://www.facebook.com/shamil.puthusseri" target="_blank" rel="noopener noreferrer" className={styles.socialCircle} title="Facebook">
+                                <a href="https://www.facebook.com/shamil.puthusseri.3" target="_blank" rel="noopener noreferrer" className={styles.socialCircle} title="Facebook">
                                     <Facebook size={20} strokeWidth={1.5} />
                                 </a>
                             </div>
@@ -226,7 +226,7 @@ export default function Contact() {
                 </div>
 
                 <div className={styles.copyrightRow}>
-                    <p>© {new Date().getFullYear()} Shamil Puthusseri Architects. All Rights Reserved.</p>
+                    <p>© {new Date().getFullYear()} Shamil Puthusseri Architects. <br className={styles.mobileBreak} />All Rights Reserved.</p>
                 </div>
             </footer>
         </section>

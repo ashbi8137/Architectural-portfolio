@@ -151,7 +151,7 @@
 
 .activeCategoryTitle {
     font-family: var(--font-tenor);
-    font-size: 2rem;
+    font-size: 1.6rem; /* Reduced from 2rem */
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.2em;
@@ -195,7 +195,7 @@
 
 .projectThumbTitle {
     font-family: var(--font-tenor);
-    font-size: 1.75rem;
+    font-size: 1.4rem; /* Reduced from 1.75rem */
     font-weight: 400;
     color: var(--foreground);
     transition: color 0.3s ease;
@@ -229,7 +229,7 @@
 
 .projectName {
     font-family: var(--font-tenor);
-    font-size: 3rem;
+    font-size: 2.2rem; /* Reduced from 3rem */
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -294,7 +294,7 @@
 
 .projectDescription {
     font-family: var(--font-tenor);
-    font-size: 1.1rem;
+    font-size: 1rem; /* Reduced from 1.1rem */
     line-height: 1.7;
     color: #444;
     text-align: justify;
@@ -513,5 +513,55 @@
         width: 100vw;
         height: 100vh;
         /* Fullscreen on mobile */
+    }
+
+    /* Reset Gallery Masonry Spans for Mobile */
+    .gridItem:nth-child(n) {
+        grid-column: span 12 !important;
+        height: 50vh !important;
+    }
+
+    .projectName {
+        font-size: 1.6rem; /* Reduced from 2rem */
+        text-align: center;
+    }
+
+    .projectInfoContainer {
+        max-width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .infoRow {
+        width: 100%;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .locationRow {
+        align-items: center;
+    }
+
+    .projectDescription {
+        text-align: center;
+    }
+
+    .sectionTitle {
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        gap: 0.5rem;
+        margin-bottom: 2rem; /* Reduced from 3rem */
+        width: 100%;
+        justify-content: center;
+    }
+
+    .categoryContainer {
+        padding-top: 2rem !important; /* Reduced from 8rem to close the gap */
+        padding-bottom: 3rem;
+    }
+
+    .sectionTitle::before,
+    .sectionTitle::after {
+        width: 15px;
     }
 }

@@ -1,8 +1,10 @@
 .section {
-    min-height: auto; /* Changed from 100vh to remove excessive bottom space */
+    min-height: auto;
+    /* Changed from 100vh to remove excessive bottom space */
     background-color: var(--background);
     color: var(--foreground);
-    padding: 4rem 2rem; /* Reduced from 6rem 2rem 2rem 2rem */
+    padding: 4rem 2rem;
+    /* Reduced from 6rem 2rem 2rem 2rem */
     display: flex;
     flex-direction: column;
 }
@@ -14,26 +16,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem; /* Further reduced from 2.5rem */
+    gap: 1rem;
+    /* Reduced from 2rem */
 }
 
 .headerWrapper {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 0.5rem; /* Reduced from 2rem */
+    margin-bottom: 0.5rem;
+    /* Reduced from 2rem */
 }
 
 .formWrapper {
     width: 100%;
-    max-width: 1000px; /* Balanced width for the 2-column form */
+    max-width: 1000px;
+    /* Balanced width for the 2-column form */
 }
 
 /* Removed old side classes */
 
 .heading {
     font-family: var(--font-tenor), serif;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    /* Reduced from 3.2rem as requested */
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.5em;
@@ -41,7 +47,9 @@
     display: flex;
     align-items: center;
     gap: 2rem;
-    margin-bottom: 0;
+    margin-bottom: 2rem;
+    white-space: nowrap;
+    /* Force one line */
 }
 
 .heading::before,
@@ -57,7 +65,8 @@
 .form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem 6rem; /* Reduced vertical gap from 3rem to 1.5rem */
+    gap: 1.5rem 6rem;
+    /* Reduced vertical gap from 3rem to 1.5rem */
     width: 100%;
     align-items: end;
 }
@@ -68,7 +77,8 @@
     grid-column: 1 / -1;
     display: flex;
     justify-content: flex-end;
-    margin-top: 0.5rem; /* Further reduced from 1rem */
+    margin-top: 0.5rem;
+    /* Further reduced from 1rem */
 }
 
 .inputGroup {
@@ -80,7 +90,8 @@
 }
 
 .label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
+    /* Reduced from 0.7rem */
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.2em;
@@ -89,7 +100,7 @@
 
 .input,
 .textarea {
-    padding: 1rem 0; 
+    padding: 1rem 0;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     background: transparent;
@@ -180,11 +191,14 @@
 .footerGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 4rem;
+    gap: 2rem;
+    /* Reduced from 4rem */
     width: 100%;
     max-width: 1200px;
-    margin: 4rem auto 0 auto;
-    padding-top: 4rem;
+    margin: 2rem auto 0 auto;
+    /* Reduced from 4rem */
+    padding-top: 2rem;
+    /* Reduced from 4rem */
     border-top: 1px solid #eee;
 }
 
@@ -212,7 +226,8 @@
 }
 
 .contactValue {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    /* Reduced from 0.9rem */
     color: #333;
     line-height: 1.6;
     font-family: var(--font-tenor), serif;
@@ -251,12 +266,22 @@
     text-transform: uppercase;
 }
 
+.mobileBreak {
+    display: none;
+}
+
 
 
 @media (max-width: 1024px) {
+    .section {
+        padding: 1rem 1.5rem !important;
+        /* Force tighter top padding */
+    }
+
     .container {
-        padding: 4rem 1rem;
-        gap: 3rem;
+        padding: 1rem 0;
+        /* Reduced from 4rem */
+        gap: 2rem;
     }
 
     .formWrapper {
@@ -269,14 +294,20 @@
     }
 
     .heading {
-        font-size: 0.75rem;
-        letter-spacing: 0.3em;
-        gap: 1rem;
+        font-size: 0.85rem;
+        /* Ultra-small to fit one line */
+        letter-spacing: 0.2em;
+        margin-bottom: 1.5rem;
+        white-space: nowrap;
+        /* Forced back to one line as requested */
+        text-align: center;
+        width: 100%;
+        justify-content: center;
     }
 
     .heading::before,
     .heading::after {
-        width: 25px;
+        width: 15px;
     }
 
     .buttonWrapper {
@@ -288,18 +319,39 @@
     }
 
     .footerGrid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Center the whole group */
         gap: 3rem;
-        text-align: center;
         padding-top: 3rem;
     }
 
     .footerColumn {
-        align-items: center;
+        align-items: flex-start;
+        /* Left align content inside each column */
+        width: 100%;
+        max-width: 280px;
+        /* Constrain width so they all start from the same left position */
+    }
+
+    .contactItem {
+        align-items: flex-start !important;
+        text-align: left !important;
+    }
+
+    .footerSocials {
+        justify-content: flex-start !important;
     }
 
     .copyrightRow {
         margin-top: 3rem;
         text-align: center;
+        line-height: 2;
+        /* Add some space between the two lines */
+    }
+
+    .mobileBreak {
+        display: block;
     }
 }

@@ -1,60 +1,65 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Hero.module.css";
 
 const heroImages = [
-  "/images/hero-1-new.jpg",
-  "/images/subin-night-v2.jpg",
-  "/images/abdurahiman-exterior-v2.jpg"
+  { src: "/images/hero-1-new.jpg", title: "RESIDENCE AT AREEKODE" },
+  { src: "/images/subin-night-v2.jpg", title: "RESIDENCE AT NILAMBUR" },
+  { src: "/images/abdurahiman-exterior-v2.jpg", title: "RESIDENCE AT FAROOK" }
 ];
 
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextImage = () => setCurrentIndex((prev) => (prev + 1) % heroImages.length);
-  const prevImage = () => setCurrentIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % heroImages.length);
+    }, 4000); // 4 seconds interval
+
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section className={styles.hero} id="hero">
-      {/* Sliding Peek Carousel */}
       <div className={styles.sliderContainer}>
-        <motion.div 
-            className={styles.sliderTrack}
-            initial={false}
-            animate={{ x: `calc(-${currentIndex} * var(--slide-stride))` }}
-            transition={{ type: "spring", stiffness: 200, damping: 25 }}
-        >
-          {heroImages.map((src, index) => (
-            <div key={index} className={styles.slide}>
-              <Image
-                src={src}
-                alt={`Architecture view ${index + 1}`}
-                fill
-                className={styles.image}
-                priority={index === 0}
-                quality={100}
-                sizes="100vw"
-              />
-              <div className={styles.overlay} />
-            </div>
-          ))}
-        </motion.div>
-      </div>
+        <AnimatePresence>
+          <motion.div
+            key={currentIndex}
+            className={styles.slide}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+          >
+            <Image
+              src={heroImages[currentIndex].src}
+              alt={heroImages[currentIndex].title}
+              fill
+              className={styles.image}
+              priority
+              quality={100}
+              sizes="100vw"
+            />
+            <div className={styles.overlay} />
 
-      {/* Manual Navigation Arrows */}
-      <button onClick={prevImage} className={`${styles.navArrow} ${styles.prevArrow}`} aria-label="Previous image">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-      </button>
-      <button onClick={nextImage} className={`${styles.navArrow} ${styles.nextArrow}`} aria-label="Next image">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-      </button>
+            {/* IMAGE CAPTION */}
+            <div className={styles.caption}>
+              <motion.span
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+                className={styles.imageTitle}
+              >
+                {heroImages[currentIndex].title}
+              </motion.span>
+              <span className={styles.counter}>{currentIndex + 1} / {heroImages.length}</span>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
     </section>
   );
 }

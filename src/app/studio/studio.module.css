@@ -1,0 +1,7 @@
+.main {
+    background-color: var(--background);
+}
+
+.content {
+    padding-top: 5rem; /* Navbar height */
+}

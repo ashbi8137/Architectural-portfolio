@@ -2,7 +2,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     padding: 0.8rem 3rem;
     /* Reduced vertical padding for a slimmer, more premium look */
     display: flex;
@@ -47,7 +47,7 @@
     object-fit: contain;
     width: auto;
     height: 40px;
-    /* Increased height so it's not too small */
+    mix-blend-mode: multiply; /* Removes white background from non-transparent logo */
 }
 
 .navLinks {
@@ -77,24 +77,147 @@
     color: #666;
 }
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    padding: 10px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 1px;
+    background-color: black;
+    transition: all 0.3s ease;
+}
+
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     .navbar {
-        padding: 1.5rem 1rem;
-        flex-direction: column;
+        padding: 1rem 1.5rem;
+        flex-direction: row; /* KEEP ROW LAYOUT AS PER REF */
+        justify-content: space-between;
         align-items: center;
-        gap: 1rem;
+        width: 100%;
     }
 
-    .brand {
-        align-items: center;
+    .brandLogo {
+        height: 32px; /* Slightly smaller for mobile */
     }
 
     .navLinks {
-        gap: 1.5rem;
+        display: none; /* Hide standard links */
     }
 
-    .navItem {
-        font-size: 0.75rem;
+    .hamburger {
+        display: flex; /* Show hamburger */
     }
+
+    /* Animate Hamburger to X if needed, but Stapati uses 2 lines. 
+       Let's just keep them or slight shift. */
+    .hamburger.open span:first-child {
+        transform: translateY(3.5px) rotate(45deg);
+    }
+    .hamburger.open span:last-child {
+        transform: translateY(-3.5px) rotate(-45deg);
+    }
+}
+
+.mobileMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    z-index: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobileNavLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.mobileNavItem {
+    font-family: var(--font-tenor), sans-serif;
+    font-size: 1.2rem; /* Reduced from 1.5rem */
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: black;
+    text-decoration: none;
+}
+
+.closeMenu {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+    color: black;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.closeMenu:hover {
+    border-color: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.studioOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #f2f0ea; /* Matches Manifesto background */
+    z-index: 2000;
+    overflow-y: auto;
+}
+
+.studioContent {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeStudio {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2100;
+    color: black;
+    transition: all 0.3s ease;
+}
+
+.closeStudio:hover {
+    background: rgba(0,0,0,0.05);
+    border-color: black;
 }

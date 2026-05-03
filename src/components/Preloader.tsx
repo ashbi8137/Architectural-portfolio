@@ -31,7 +31,7 @@ export default function Preloader() {
                         left: 0,
                         width: '100vw',
                         height: '100vh',
-                        backgroundColor: '#FDFCF8', // Matches var(--background)
+                        backgroundColor: '#F6F4F0', // Matches var(--background)
                         zIndex: 99999,
                         display: 'flex',
                         alignItems: 'center',
@@ -56,7 +56,10 @@ export default function Preloader() {
                             src="/images/logo_final.png"
                             alt="Shamil Puthusseri Architects"
                             fill
-                            style={{ objectFit: 'contain' }}
+                            style={{ 
+                                objectFit: 'contain',
+                                mixBlendMode: 'multiply' // Removes white background from non-transparent PNGs
+                            }}
                             priority
                         />
                     </motion.div>

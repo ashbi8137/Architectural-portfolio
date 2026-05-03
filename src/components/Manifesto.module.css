@@ -45,8 +45,10 @@
 
 .imageFrame {
     position: relative;
-    width: 440px;
-    height: 600px;
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    aspect-ratio: 44 / 60;
     z-index: 5;
     background: #000;
     /* SHARP RECTANGLE: No rounded corners or complex clips */
@@ -67,32 +69,21 @@
     pointer-events: none;
 }
 
-/* Vertical Accent Line */
-.imageCardWrapper::before {
-    content: "";
-    position: absolute;
-    top: -40px;
-    left: 20px;
-    width: 1px;
-    height: 120px;
-    background: #c5a059;
-    z-index: 10;
-}
+/* Vertical Accent Line Removed */
 
 .ceoImage {
     object-fit: cover;
     filter: grayscale(100%);
-    transition: all 0.8s ease;
     display: block;
 }
 
 .imageFrame:hover {
-    transform: translateY(-10px);
+    transform: none;
 }
 
 .imageFrame:hover .ceoImage {
-    filter: grayscale(0%);
-    transform: scale(1.05);
+    filter: grayscale(100%);
+    transform: none;
 }
 
 /* --- TYPOGRAPHY --- */
@@ -131,14 +122,16 @@
 
 .prose {
     font-family: var(--font-tenor), serif;
-    font-size: 1.4rem; /* Further reduced for ultra-minimal look */
+    font-size: 1.15rem; /* Reduced from 1.25rem */
     font-weight: 300;
-    line-height: 1.6; /* More airy line height */
+    line-height: 1.6;
     color: #1a1a1a;
-    margin-bottom: 1rem; /* Reduced from 3rem */
+    margin-bottom: 1rem;
     letter-spacing: 0.02em;
-    text-align: left;
+    text-align: inherit;
     position: relative;
+    max-width: 100%;
+    word-wrap: break-word;
 }
 
 .highlight {
@@ -164,7 +157,7 @@
 
 .signature {
     font-family: var(--font-libre);
-    font-size: 1.1rem;
+    font-size: 1rem; /* Reduced from 1.1rem */
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -174,7 +167,7 @@
 .microTagline {
     font-family: var(--font-libre);
     font-style: italic;
-    font-size: 0.95rem;
+    font-size: 0.85rem; /* Reduced from 0.95rem */
     color: #666;
     margin-top: 0.2rem;
 }
@@ -188,12 +181,31 @@
     }
 
     .imageCardWrapper {
-        margin-bottom: 1rem;
+        width: 100%;
+        justify-content: center;
+        padding-right: 15px; /* Compensate for gold frame offset to maintain visual center */
+        margin-bottom: 3rem;
+    }
+
+    .imageCardWrapper::before {
+        display: none; /* Hide accent line on mobile to simplify centering */
+    }
+
+    .imageFrame {
+        max-width: 280px; /* Reduced to ensure it fits with frame */
+    }
+
+    .goldOutlineFrame {
+        top: 15px;
+        right: -15px; /* Reduced offset */
+        width: 100%;
+        height: 100%;
     }
 
     .textComposition {
         align-items: center;
         text-align: center;
+        width: 100%;
     }
 
     .hugeTitle {
@@ -202,10 +214,16 @@
 
     .hugeTitle::before {
         display: none;
-        /* Hide line on mobile for center alignment */
     }
 
-    .proseSmall {
-        margin: 0 auto;
+    .proseWrapper {
+        text-align: center;
+    }
+
+    .signatureBlock {
+        text-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
     }
 }
