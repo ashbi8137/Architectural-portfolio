@@ -30,7 +30,7 @@ export default function Manifesto() {
 
                         {/* Main Image */}
                         <Image
-                            src="/Architectural-portfolio/images/ceo-new.jpg"
+                            src="/images/ceo-new.jpg"
                             alt="Ar Shamil P A"
                             fill
                             className={styles.ceoImage}
@@ -42,20 +42,9 @@ export default function Manifesto() {
                 </motion.div>
 
                 <div className={styles.textComposition}>
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <h2 className={styles.hugeTitle}>The Vision</h2>
-                    </motion.div>
-
                     <div className={styles.proseWrapper}>
                         <p className={styles.prose}>
                             "Every structure begins as a <span className={styles.highlight}>whisper</span> between land, light, and imagination."
-                        </p>
-                        <p className={styles.proseSmall}>
-                            We do not just build spaces. We carefully craft experiences that pause time and elevate the human spirit.
                         </p>
                     </div>
 

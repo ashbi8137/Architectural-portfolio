@@ -4,9 +4,10 @@ const nextConfig: NextConfig = {
   output: 'export',
   images: {
     unoptimized: true,
+    qualities: [100, 75],
   },
-  basePath: '/Architectural-portfolio',
-  assetPrefix: '/Architectural-portfolio/',
+  //basePath: '/Architectural-portfolio',
+  //assetPrefix: '/Architectural-portfolio/',
   reactCompiler: true,
 };
 

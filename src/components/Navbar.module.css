@@ -3,17 +3,20 @@
     top: 0;
     left: 0;
     width: 100vw;
-    padding: 2rem 3rem;
+    padding: 0.8rem 3rem;
+    /* Reduced vertical padding for a slimmer, more premium look */
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    /* Trigger wrapper hits top */
+    align-items: center;
+    /* Ensures logo and links are perfectly vertically centered */
     z-index: 100;
-    /* Highest z-index */
-    mix-blend-mode: difference;
-    /* Ensure visibility on light/dark */
-    color: white;
-    /* Difference mode makes this invert correctly */
+    background-color: rgba(255, 255, 255, 0.98);
+    /* Very slight transparency for a premium feel */
+    backdrop-filter: blur(10px);
+    /* Adds a subtle glass effect if content scrolls under */
+    color: black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /* Extremely subtle and refined separator line */
 }
 
 /* Common Text Style */
@@ -31,135 +34,67 @@
 }
 
 /* Align Brand & Contact downwards to match "Menu Text" position */
-/* Menu wrapper has: Line (2px) + Gap (0.6rem) + Text */
-/* So we push Brand/Contact down by Line + Gap */
-.brand,
-.contactLink {
-    margin-top: calc(2px + 0.6rem);
-    /* Align with text below line */
-    cursor: pointer;
-}
-
-/* Center Menu Trigger */
-.menuTriggerWrapper {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+.brand {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0.6rem;
-    /* Space between line and text */
+    text-decoration: none;
+    color: black;
     cursor: pointer;
-    margin-top: 0;
-    /* Align wrapper to top */
+    /* Adjust alignment to vertically center with the menu button somewhat */
 }
 
-.menuLine {
-    width: 60px;
-    height: 2px;
-    background-color: white;
-    transition: width 0.3s ease;
-}
-
-.menuTriggerWrapper:hover .menuLine {
-    width: 90px;
-}
-
-/* Overlay & Mobile Styles remain similar... */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #1a1a1a;
-    color: #FDFCF8;
-    z-index: 99;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
+.brandLogo {
+    object-fit: contain;
+    width: auto;
+    height: 40px;
+    /* Increased height so it's not too small */
 }
 
 .navLinks {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    /* Reduced gap from 1.5rem */
-    text-align: center;
-    list-style: none;
-    /* Remove bullets */
+    gap: 2.5rem;
+    /* Slightly increased gap for elegant spacing between text */
+    align-items: center;
+    margin-top: 0;
+    /* Removed margin-top since the parent now perfectly centers */
 }
 
 .navItem {
-    font-family: var(--font-tenor);
-    font-size: 1.25rem;
-    /* Reduced from 2rem to ~20px */
+    font-family: var(--font-tenor), sans-serif;
+    font-size: 0.85rem;
+    /* Very slight reduction for a more refined look */
+    font-weight: 500;
+    /* Slightly lighter weight for elegance */
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: rgba(255, 255, 255, 0.5);
-    transition: all 0.4s ease;
-    /* cursor: pointer; handled globally */
+    letter-spacing: 0.15em;
+    /* Increased tracking for high-end aesthetic */
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .navItem:hover {
-    color: white;
-    transform: scale(1.05);
-    /* Slight luxurious lift */
+    color: #666;
 }
 
 /* Mobile Adjustments */
-/* Mobile Adjustments */
 @media (max-width: 768px) {
     .navbar {
-        padding: 1.5rem;
-        justify-content: space-between;
+        padding: 1.5rem 1rem;
+        flex-direction: column;
         align-items: center;
+        gap: 1rem;
     }
 
     .brand {
-        font-size: 0.75rem;
-        z-index: 101;
+        align-items: center;
     }
 
-    .contactLink {
-        display: none;
-    }
-
-    .menuTriggerWrapper {
-        position: static;
-        transform: none;
-        flex-direction: column;
-        align-items: flex-end;
-        margin-top: 0;
-    }
-
-    .menuText {
-        font-size: 0.65rem;
-    }
-
-    .menuLine {
-        width: 30px;
-        margin-bottom: 2px;
-    }
-
-    .menuTriggerWrapper:hover .menuLine {
-        width: 40px;
-    }
-
-    /* Tighter Spacing for Mobile Menu */
     .navLinks {
-        gap: 0.75rem;
-        margin-top: 1rem;
-        /* Closer to top/brand */
+        gap: 1.5rem;
     }
 
-    /* Reduce Menu Item Scale on Mobile */
     .navItem {
-        font-size: 1.1rem;
-        /* Ultra compact (approx 17px) */
-        letter-spacing: 0.1em;
+        font-size: 0.75rem;
     }
 }

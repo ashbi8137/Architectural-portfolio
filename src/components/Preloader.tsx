@@ -12,7 +12,7 @@ export default function Preloader() {
         const timer = setTimeout(() => {
             setIsLoading(false);
             window.scrollTo(0, 0); // Reset scroll on entry
-        }, 5000);
+        }, 3000);
 
         return () => clearTimeout(timer);
     }, []);
@@ -40,20 +40,20 @@ export default function Preloader() {
                     }}
                 >
                     <motion.div
-                        initial={{ clipPath: "inset(0 100% 0 0)", opacity: 0.5 }}
-                        animate={{ clipPath: "inset(0 0% 0 0)", opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 4, ease: [0.22, 1, 0.36, 1] }} // Smooth editorial ease
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 1.05 }}
+                        transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
                         style={{
                             position: 'relative',
-                            width: '80%',
-                            maxWidth: '500px',
+                            width: '40%',
+                            maxWidth: '160px',
                             height: 'auto',
-                            aspectRatio: '3/1'
+                            aspectRatio: '4/1'
                         }}
                     >
                         <Image
-                            src="/Architectural-portfolio/images/logo_clean_v2.png"
+                            src="/images/logo_final.png"
                             alt="Shamil Puthusseri Architects"
                             fill
                             style={{ objectFit: 'contain' }}

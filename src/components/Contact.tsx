@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Instagram, Linkedin, Twitter, MessageCircle, MapPin } from "lucide-react";
+import { Instagram, MessageCircle, MapPin, Facebook } from "lucide-react";
 import styles from "./Contact.module.css";
 import { useState } from "react";
 
@@ -14,6 +14,9 @@ export default function Contact() {
         subject: "Residential",
         message: ""
     });
+
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const projectTypes = ["Residential", "Commercial", "Interior", "Other"];
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -60,70 +63,106 @@ export default function Contact() {
     return (
         <section className={styles.section} id="contact">
             <div className={styles.container}>
-                <div className={styles.formSide}>
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <h2 className={styles.heading}>Let's shape your next space.</h2>
-                        For collaborations, commissions, and consultations with Ar Shamil Puthusserri.
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className={styles.headerWrapper}
+                >
+                    <h2 className={styles.heading}>Let's shape your next space</h2>
+                </motion.div>
 
-                        <form className={styles.form} onSubmit={handleSubmit}>
-                            <div className={styles.inputGroup}>
-                                <label className={styles.label}>Name</label>
-                                <input
-                                    type="text"
-                                    className={styles.input}
-                                    placeholder="Your Name"
-                                    required
-                                    value={formData.name}
-                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                />
-                            </div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className={styles.formWrapper}
+                >
+                    <form className={styles.form} onSubmit={handleSubmit}>
+                        <div className={styles.inputGroup}>
+                            <label className={styles.label}>Name</label>
+                            <input
+                                className={styles.input}
+                                type="text"
+                                placeholder="Your Name"
+                                required
+                                value={formData.name}
+                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                            />
+                        </div>
 
-                            <div className={styles.inputGroup}>
-                                <label className={styles.label}>Email</label>
-                                <input
-                                    type="email"
-                                    className={styles.input}
-                                    placeholder="your@email.com"
-                                    required
-                                    value={formData.email}
-                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                />
-                            </div>
-
-                            <div className={styles.inputGroup}>
-                                <label className={styles.label}>Project Type</label>
-                                <select
-                                    className={styles.select}
-                                    value={formData.subject}
-                                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                        <div className={styles.inputGroup}>
+                            <label className={styles.label}>Project Type</label>
+                            <div className={styles.customSelectWrapper}>
+                                <div
+                                    className={styles.customSelectTrigger}
+                                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                                 >
-                                    <option value="Residential">Residential</option>
-                                    <option value="Commercial">Commercial</option>
-                                    <option value="Interior">Interior</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
+                                    <span>{formData.subject}</span>
+                                    <motion.span
+                                        animate={{ rotate: isDropdownOpen ? 180 : 0 }}
+                                        className={styles.dropdownArrow}
+                                    >
+                                        ↓
+                                    </motion.span>
+                                </div>
 
-                            <div className={styles.inputGroup}>
-                                <label className={styles.label}>Message</label>
-                                <textarea
-                                    className={styles.textarea}
-                                    rows={4}
-                                    placeholder="Tell us about your vision"
-                                    required
-                                    value={formData.message}
-                                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                ></textarea>
+                                <AnimatePresence>
+                                    {isDropdownOpen && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: -10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -10 }}
+                                            className={styles.dropdownOptions}
+                                        >
+                                            {projectTypes.map((type) => (
+                                                <div
+                                                    key={type}
+                                                    className={styles.dropdownOption}
+                                                    onClick={() => {
+                                                        setFormData({ ...formData, subject: type });
+                                                        setIsDropdownOpen(false);
+                                                    }}
+                                                >
+                                                    {type}
+                                                </div>
+                                            ))}
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </div>
+                        </div>
 
+                        <div className={styles.inputGroup}>
+                            <label className={styles.label}>Email</label>
+                            <input
+                                className={styles.input}
+                                type="email"
+                                placeholder="your@email.com"
+                                required
+                                value={formData.email}
+                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            />
+                        </div>
+
+                        <div className={styles.inputGroup}>
+                            <label className={styles.label}>Message</label>
+                            <textarea
+                                className={styles.textarea}
+                                rows={2}
+                                placeholder="Tell us about your vision"
+                                required
+                                value={formData.message}
+                                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                            ></textarea>
+                        </div>
+
+                        <div className={styles.buttonWrapper}>
                             <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
                                 className={styles.button}
                                 type="submit"
                                 disabled={status === 'sending' || status === 'success'}
@@ -139,63 +178,55 @@ export default function Contact() {
                                 {status === 'sending' && "Sending..."}
                                 {status === 'success' && "Message Sent!"}
                             </motion.button>
-                        </form>
-                    </motion.div>
-                </div>
-
-                <motion.div
-                    className={styles.imageSide}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1 }}
-                >
-                    <Image
-                        src="/Architectural-portfolio/images/contact_minimal_design.png"
-                        alt="Minimalist Architecture"
-                        fill
-                        style={{ objectFit: 'cover' }}
-                    />
+                        </div>
+                    </form>
                 </motion.div>
             </div>
 
             <footer className={styles.footer}>
-                <div className={styles.footerContent}>
-                    <div>
-                        <strong>Shamil Puthusseri Architects</strong>
-                        <br />
-                        <span style={{ opacity: 0.6 }}>shamilputhusheri@gmail.com</span>
+                <div className={styles.footerGrid}>
+                    {/* COLUMN 1: OFFICE ADDRESS */}
+                    <div className={styles.footerColumn}>
+                        <div className={styles.contactItem}>
+                            <h4 className={styles.contactLabel}>Office</h4>
+                            <p className={styles.contactValue}>
+                                Hilite Business Park, National Highway 66,<br />
+                                Thondayad, Kozhikode, Kerala<br />
+                                PIN: 673014
+                            </p>
+                        </div>
                     </div>
 
-                    <div className={styles.socials}>
-                        <a
-                            href="https://www.instagram.com/ar.shamil_/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.socialLink}
-                        >
-                            <Instagram size={20} />
-                        </a>
-                        <a
-                            href="https://wa.me/919567409124?text=I%20have%20an%20enquiry"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.socialLink}
-                        >
-                            <MessageCircle size={20} />
-                        </a>
-                        <a
-                            href="https://www.google.com/maps/place/11%C2%B014'24.2%22N+76%C2%B004'42.6%22E/@11.240053,76.0778549,19z/data=!3m1!4b1!4m13!1m8!3m7!1s0x3ba6387fb4487ab3:0xea5904bc0296aebc!2sPoovathikkal,+Urangattiri,+Kerala+673639!3b1!8m2!3d11.2376297!4d76.0892261!16s%2Fg%2F1232p55jd!3m3!8m2!3d11.240053!4d76.0785?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.socialLink}
-                        >
-                            <MapPin size={20} />
-                        </a>
+                    {/* COLUMN 2: CONTACT INFO */}
+                    <div className={styles.footerColumn}>
+                        <div className={styles.contactItem}>
+                            <h4 className={styles.contactLabel}>Contact</h4>
+                            <p className={styles.contactValue}>shamilputhusseri@gmail.com</p>
+                            <p className={styles.contactValue}>+91 95674 09124</p>
+                        </div>
+                    </div>
+
+                    {/* COLUMN 3: SOCIALS */}
+                    <div className={styles.footerColumn}>
+                        <div className={styles.contactItem}>
+                            <h4 className={styles.contactLabel}>Connect</h4>
+                            <div className={styles.footerSocials}>
+                                <a href="https://www.instagram.com/ar.shamil_/" target="_blank" rel="noopener noreferrer" className={styles.socialCircle}>
+                                    <Instagram size={20} strokeWidth={1.5} />
+                                </a>
+                                <a href="https://wa.me/919567409124?text=I%20have%20an%20enquiry" target="_blank" rel="noopener noreferrer" className={styles.socialCircle} title="WhatsApp">
+                                    <MessageCircle size={20} strokeWidth={1.5} />
+                                </a>
+                                <a href="https://www.facebook.com/shamil.puthusseri" target="_blank" rel="noopener noreferrer" className={styles.socialCircle} title="Facebook">
+                                    <Facebook size={20} strokeWidth={1.5} />
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div style={{ fontSize: '0.8rem', opacity: 0.4, marginTop: '1rem' }}>
-                    © {new Date().getFullYear()} Shamil Puthusseri Architects. All rights reserved.
+
+                <div className={styles.copyrightRow}>
+                    <p>© {new Date().getFullYear()} Shamil Puthusseri Architects. All Rights Reserved.</p>
                 </div>
             </footer>
         </section>

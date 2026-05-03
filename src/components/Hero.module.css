@@ -4,11 +4,24 @@
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    background-color: #050505;
-    color: #fff;
+    background-color: var(--background); /* Changed from #050505 to light background */
+    color: var(--foreground);
     display: flex;
     justify-content: center;
     align-items: center;
+
+    /* Slider Configuration */
+    --slide-width: 100vw;
+    --slide-gap: 0vw;
+    --slide-stride: calc(var(--slide-width) + var(--slide-gap));
+    --padding-left: 0px;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        --slide-width: 100vw;
+        --slide-gap: 0vw;
+    }
 }
 
 /* Logo Styles */
@@ -68,124 +81,80 @@
     margin-top: 2px;
 }
 
-.imageLayer {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+.sliderContainer {
+    width: 100vw;
+    height: 100vh;
+    overflow: visible;
 }
 
-.absoluteFull {
-    position: absolute;
-    inset: 0;
-    width: 100%;
+.sliderTrack {
+    display: flex;
     height: 100%;
+    align-items: center;
+    padding-left: var(--padding-left);
+}
+
+.slide {
+    position: relative;
+    height: 100vh; /* Full screen height */
+    width: var(--slide-width);
+    margin-right: var(--slide-gap);
+    flex-shrink: 0;
+    overflow: hidden;
 }
 
 .image {
-    object-fit: cover;
+    object-fit: cover; /* Back to cover so there are no black bars within the slide frame */
 }
 
 .overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+    background: transparent; /* Removed dark overlay for cleaner look */
     z-index: 1;
+    pointer-events: none;
 }
 
-.content {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-}
-
-.textContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-/* MASKING UTILITY: Crucial for the "Rise Up" effect */
-.maskContainer {
-    overflow: hidden;
-    /* Hides the text when it's translated down */
-    position: relative;
-}
-
-.brandName {
-    font-family: var(--font-libre);
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    font-weight: 700;
-    /* Bold Modern */
-    letter-spacing: 0.15em;
-    line-height: 1.1;
-    text-transform: uppercase;
-    color: #fff;
-}
-
-.subBrand {
-    font-family: var(--font-libre);
-    font-size: clamp(1.5rem, 4vw, 3rem);
-    /* Slightly smaller than main */
-    font-weight: 300;
-    /* Light variant */
-    letter-spacing: 0.35em;
-    /* Very wide spacing */
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.9);
-    margin-top: 0.5rem;
-}
-
-.separatorContainer {
-    margin: 2rem 0;
-}
-
-.separator {
-    width: 2px;
-    height: 60px;
-    background-color: #fff;
-}
-
-.tagline {
-    font-family: var(--font-libre);
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-/* Scroll Indicator */
-.scrollIndicator {
+/* Manual Navigation Arrows */
+.navArrow {
     position: absolute;
-    bottom: 3rem;
-    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 20;
+    background: transparent;
+    border: none;
+    color: rgba(0, 0, 0, 0.4); /* Dark arrow for light background */
+    cursor: pointer;
+    width: 60px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
-.scrollLine {
-    width: 1px;
-    height: 80px;
-    background-color: rgba(255, 255, 255, 0.2);
-    position: relative;
-    overflow: hidden;
+.navArrow svg {
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
 }
 
-.scrollProgress {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 30%;
-    background-color: #fff;
+.navArrow:hover {
+    color: black;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prevArrow {
+    left: 2%;
+}
+
+.nextArrow {
+    right: 2%;
 }
 
 @media (max-width: 768px) {
-    .brandName {
-        letter-spacing: 0.05em;
-    }
-
-    .subBrand {
-        letter-spacing: 0.2em;
+    .navArrow svg {
+        width: 40px;
+        height: 40px;
     }
 }

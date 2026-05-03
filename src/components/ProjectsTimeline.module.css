@@ -11,94 +11,127 @@
 
 /* Category Index View */
 .categoryContainer {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 8rem 5% 6rem; /* Increased top padding for the new title */
     z-index: 10;
     position: relative;
-}
-
-.categoryList {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 1.5vh;
-    /* Responsive gap */
-    text-align: center;
-    list-style: none;
-    /* Reset list style */
-    padding: 0;
+    flex-direction: column; /* Allow title to sit above grid */
+    align-items: center;
 }
 
-.categoryItem {
-    font-family: var(--font-tenor);
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    /* Large Architectural Type */
+.sectionTitle {
+    font-family: var(--font-tenor), sans-serif;
+    font-size: 0.85rem;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: rgba(26, 26, 26, 0.4);
-    /* Faded by default */
-    cursor: none;
-    /* User requested removing hand cursor to use custom cursor */
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    letter-spacing: 0.5em;
+    margin-bottom: 5rem;
+    color: #999;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.sectionTitle::before,
+.sectionTitle::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background-color: #eee;
+}
+
+.categoryGrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* Mobile default */
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1400px;
+}
+
+/* Force 3 columns on practically all non-mobile screens */
+@media (min-width: 600px) {
+    .categoryGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .categoryCard {
+        height: 350px;
+    }
+}
+
+.categoryCard {
     position: relative;
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.1);
+    /* No padding, let absolute positioning handle text */
+    display: block; 
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    min-height: 250px;
 }
 
-.categoryItem:hover {
-    color: var(--foreground);
-    transform: translateX(10px);
-    /* Move slightly right instead of scale */
-    letter-spacing: 0.05em;
+.categoryBgImage {
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.6s ease;
+    opacity: 0.8;
 }
 
-/* Hover Interaction Cue */
-/* Removed individual text cues per user request */
-.categoryItem::after {
-    content: none;
+.categoryCard:hover .categoryBgImage {
+    transform: scale(1.05);
 }
 
-/* Let's try a different approach: Simple text append via CSS is tricky with centering. 
-   Instead, let's keep it simple: Make the cursor obvious and maybe an underline or arrow */
-
-.categorySup {
-    font-size: 1rem;
-    vertical-align: super;
-    margin-left: 0.5rem;
-    opacity: 0.6;
-    transition: opacity 0.3s;
+.categoryOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    transition: background 0.4s ease;
 }
 
-.categoryItem:hover .categorySup {
-    opacity: 1;
-    color: #d4a373;
-    /* Subtle accent color on count */
+.categoryCard:hover .categoryOverlay {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.categoryCardTitle {
+    position: absolute;
+    bottom: 2rem; /* Push to bottom */
+    left: 0;
+    width: 100%;
+    text-align: center; /* Center horizontally */
+    z-index: 3;
+    font-family: var(--font-tenor), sans-serif;
+    font-size: 1rem; /* Extremely reduced size */
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.2em; /* Increase tracking */
+    text-shadow: 0px 4px 10px rgba(0,0,0,0.9); /* Heavy shadow for contrast */
+}
+
+.categoryArrow {
+    display: none; /* Hide the arrow since it's centered text over image now */
 }
 
 /* Gallery View (Expanded) */
-.gallerySection {
+.gallerySection, .projectListSection {
     min-height: 100vh;
     padding: 0 5% 4rem;
-    /* Side padding */
 }
 
 .galleryHeader {
     position: sticky;
     top: 0;
-    /* Stick to top edge */
     padding-top: 6rem;
-    /* Space for fixed logo */
     padding-bottom: 2rem;
     background-color: var(--background);
-    /* Solid background to cover scrolled content */
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 20;
     margin-bottom: 4rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    /* Subtle divider */
 }
 
 .backButton {
@@ -124,10 +157,65 @@
     letter-spacing: 0.2em;
 }
 
-/* Single Project Layout */
+/* 2-Column Projects Grid */
+.projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem 2rem; /* Vertical gap, Horizontal gap */
+}
+
+.projectThumbCard {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.projectThumbImageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Wide ratio like reference */
+    overflow: hidden;
+}
+
+.projectThumbImage {
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.projectThumbCard:hover .projectThumbImage {
+    transform: scale(1.03);
+}
+
+.projectThumbInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.projectThumbTitle {
+    font-family: var(--font-tenor);
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--foreground);
+    transition: color 0.3s ease;
+}
+
+.projectThumbCard:hover .projectThumbTitle {
+    color: #d4a373; /* Accent color on hover */
+}
+
+.projectThumbLocation {
+    font-family: var(--font-tenor);
+    font-size: 1rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Single Project Layout (View 3) */
 .projectWrapper {
     margin-bottom: 12rem;
-    /* Space between projects */
 }
 
 .projectHeader {
