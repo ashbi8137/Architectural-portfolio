@@ -1,8 +1,7 @@
 1:"$Sreact.fragment"
-2:I[45678,["/_next/static/chunks/88ad79be32528bdf.js","/_next/static/chunks/2781c898f1501ec0.js","/_next/static/chunks/d99625addffadc21.js"],"default"]
-3:I[60557,["/_next/static/chunks/88ad79be32528bdf.js","/_next/static/chunks/2781c898f1501ec0.js","/_next/static/chunks/d99625addffadc21.js"],"default"]
-4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
-5:"$Sreact.suspense"
-:HL["/_next/static/chunks/1bc34d7cc8c9e484.css","style"]
-0:{"buildId":"P-w6j2MyN15PLH9gvyZEm","rsc":["$","$1","c",{"children":[["$","main",null,{"className":"studio-module__W4fhGG__main","children":[["$","$L2",null,{}],["$","div",null,{"className":"studio-module__W4fhGG__content","children":["$","$L3",null,{}]}]]}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1bc34d7cc8c9e484.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/d99625addffadc21.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
-6:null
+2:I[60557,["/_next/static/chunks/4805b8393d7c4a0e.js","/_next/static/chunks/88aff815f9c2499f.js","/_next/static/chunks/8b97fdb95988edf8.js","/_next/static/chunks/8372ee7c96c7739f.js"],"default"]
+3:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+:HL["/_next/static/chunks/3d98dc8e8080981b.css","style"]
+0:{"buildId":"DYXMg-BRUifX_G4kYtp1h","rsc":["$","$1","c",{"children":[["$","main",null,{"className":"studio-module__W4fhGG__main","children":["$","div",null,{"className":"studio-module__W4fhGG__content","children":["$","$L2",null,{}]}]}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/3d98dc8e8080981b.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/8372ee7c96c7739f.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+5:null
