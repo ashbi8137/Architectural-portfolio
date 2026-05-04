@@ -110,7 +110,7 @@
 .navArrow svg {
     width: 60px;
     height: 60px;
-    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 .navArrow:hover {
@@ -143,7 +143,7 @@
 
 .imageTitle {
     font-family: var(--font-tenor), sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.65rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     font-weight: 400;
@@ -169,18 +169,20 @@
     }
 
     .sliderContainer {
-        height: auto !important; /* Force override */
-        aspect-ratio: 16 / 9;
+        height: 65vh !important;
+        /* Force override to meet 60-70% height request */
+        aspect-ratio: auto;
         width: 100%;
         overflow: hidden;
     }
 
     .slide {
-        position: relative; /* Switch from absolute for auto-height flow if needed */
+        position: relative;
+        /* Switch from absolute for auto-height flow if needed */
         height: 100%;
         width: 100%;
     }
-    
+
     /* When inside AnimatePresence with opacity, we might need absolute positioning still. 
        Let's keep absolute but ensure the parent has the ratio. */
     .slide {
@@ -204,7 +206,7 @@
     }
 
     .imageTitle {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
         letter-spacing: 0.15em;
         max-width: 75%;
     }

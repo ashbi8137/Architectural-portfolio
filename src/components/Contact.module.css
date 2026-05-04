@@ -38,7 +38,7 @@
 
 .heading {
     font-family: var(--font-tenor), serif;
-    font-size: 0.9rem;
+    font-size: 0.65rem;
     /* Reduced from 3.2rem as requested */
     font-weight: 400;
     text-transform: uppercase;
@@ -294,7 +294,7 @@
     }
 
     .heading {
-        font-size: 0.85rem;
+        font-size: 0.65rem;
         /* Ultra-small to fit one line */
         letter-spacing: 0.2em;
         margin-bottom: 1.5rem;

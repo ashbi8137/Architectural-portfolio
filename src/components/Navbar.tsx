@@ -9,6 +9,7 @@ import { X } from "lucide-react";
 import styles from "./Navbar.module.css";
 
 const navItems = [
+    { name: "HOME", href: "/" },
     { name: "PROJECTS", href: "/#projects" },
     { name: "STUDIO", href: "/studio" },
     { name: "CONTACT", href: "/#contact" },

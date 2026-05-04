@@ -17,6 +17,8 @@ export const metadata: Metadata = {
 import SmoothScroll from "@/components/SmoothScroll";
 import Grain from "@/components/Grain";
 import Navbar from "@/components/Navbar";
+import Contact from "@/components/Contact";
+import PageTransition from "@/components/PageTransition";
 
 import Preloader from "@/components/Preloader";
 import StatusBar from "@/components/StatusBar";
@@ -34,7 +36,10 @@ export default function RootLayout({
         <SmoothScroll>
           <Navbar />
           <Grain />
-          {children}
+          <PageTransition>
+            {children}
+          </PageTransition>
+          <Contact />
         </SmoothScroll>
       </body>
     </html>

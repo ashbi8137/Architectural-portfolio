@@ -47,14 +47,6 @@ export default function Hero() {
 
             {/* IMAGE CAPTION */}
             <div className={styles.caption}>
-              <motion.span
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-                className={styles.imageTitle}
-              >
-                {heroImages[currentIndex].title}
-              </motion.span>
               <span className={styles.counter}>{currentIndex + 1} / {heroImages.length}</span>
             </div>
           </motion.div>

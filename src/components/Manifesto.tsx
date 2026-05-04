@@ -1,58 +1,95 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./Manifesto.module.css";
 
 export default function Manifesto() {
-    const containerRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"]
-    });
-
     return (
-        <section ref={containerRef} className={styles.manifestoSection} id="manifesto">
-            <div className={styles.gridBackground}></div> {/* Architectural Grid */}
-
-            <div className={styles.contentContainer}>
-                {/* The "Blueprint" floating card layout */}
-
-                {/* VINTAGE PORTRAIT CARD */}
+        <section className={styles.section}>
+            {/* Hero Banner - Interior / Studio Image */}
+            <div className={styles.heroImageWrapper}>
+                <Image
+                    src="/images/studio-interior.png"
+                    alt="Studio Interior"
+                    fill
+                    className={styles.heroImage}
+                    priority
+                    quality={100}
+                    sizes="100vw"
+                />
+                <div className={styles.heroOverlay} />
                 <motion.div
-                    className={styles.imageCardWrapper}
-                    style={{ y: useTransform(scrollYProgress, [0, 1], [0, -30]) }}
+                    className={styles.heroCaption}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.8 }}
                 >
-                    <div className={styles.imageFrame}>
-                        {/* Decorative Outer Border */}
-                        <div className={styles.goldOutlineFrame}></div>
+                    <span className={styles.heroCaptionLabel}>The Studio</span>
+                </motion.div>
+            </div>
 
-                        {/* Main Image */}
-                        <Image
-                            src="/images/ceo-new.jpg"
-                            alt="Ar Shamil P A"
-                            fill
-                            className={styles.ceoImage}
-                            priority
-                            quality={100}
-                            sizes="(max-width: 768px) 100vw, 400px"
-                        />
+            {/* About Section with Profile */}
+            <div className={styles.aboutSection}>
+                <motion.div
+                    className={styles.aboutGrid}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                >
+                    {/* Left Column - Profile + Name */}
+                    <div className={styles.aboutLeft}>
+                        <div className={styles.profileFrame}>
+                            <Image
+                                src="/images/ceo-new.jpg"
+                                alt="Ar. Shamil Puthusseri"
+                                fill
+                                className={styles.profileImage}
+                                quality={90}
+                                sizes="200px"
+                            />
+                        </div>
+                        <h3 className={styles.profileName}>Ar. Shamil Puthusseri</h3>
+                        <span className={styles.profileTitle}>Principal Architect</span>
+                    </div>
+
+                    {/* Right Column - Description */}
+                    <div className={styles.aboutRight}>
+                        <blockquote className={styles.quote}>
+                            "Every structure begins as a whisper between land, light, and imagination."
+                        </blockquote>
+                        <p className={styles.aboutText}>
+                            We design spaces that breathe with their surroundings — balancing 
+                            contemporary aesthetics with timeless sensibility. Every project is 
+                            a conversation between aspiration and site.
+                        </p>
                     </div>
                 </motion.div>
 
-                <div className={styles.textComposition}>
-                    <div className={styles.proseWrapper}>
-                        <p className={styles.prose}>
-                            "Every structure begins as a <span className={styles.highlight}>whisper</span> between land, light, and imagination."
-                        </p>
+                {/* Stats Row */}
+                <motion.div
+                    className={styles.statsRow}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                    <div className={styles.statItem}>
+                        <span className={styles.statNumber}>50+</span>
+                        <span className={styles.statLabel}>Projects</span>
                     </div>
-
-                    <div className={styles.signatureBlock}>
-                        <div className={styles.signature}>Ar. Shamil Puthusseri</div>
-                        <div className={styles.microTagline}>Principal Architect</div>
+                    <div className={styles.statDivider} />
+                    <div className={styles.statItem}>
+                        <span className={styles.statNumber}>6+</span>
+                        <span className={styles.statLabel}>Years</span>
                     </div>
-                </div>
+                    <div className={styles.statDivider} />
+                    <div className={styles.statItem}>
+                        <span className={styles.statNumber}>Kozhikode</span>
+                        <span className={styles.statLabel}>Kerala</span>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );
