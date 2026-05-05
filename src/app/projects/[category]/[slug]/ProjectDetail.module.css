@@ -33,34 +33,35 @@
 }
 
 .projectHeader {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .projectName {
     font-family: var(--font-tenor), sans-serif;
-    font-size: 2rem;
+    font-size: 2.4rem;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 2rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
 }
 
 .projectInfoContainer {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 4rem;
+    align-items: center;
 }
 
 .projectMetaColumn {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    padding-right: 2rem;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 1.2rem;
 }
 
 .projectDescriptionColumn {
-    flex: 2;
-    padding-left: 1rem;
+    width: 100%;
 }
 
 .infoItem {
@@ -70,50 +71,96 @@
 }
 
 .infoLabel {
-    font-size: 0.65rem;
+    font-size: 0.5rem;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    opacity: 0.5;
+    letter-spacing: 0.35em;
+    opacity: 0.4;
+    font-weight: 600;
 }
 
 .infoValue {
     font-family: var(--font-tenor), sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 0.05em;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #222;
 }
 
 .projectDescription {
-    font-size: 0.95rem;
-    line-height: 1.8;
-    opacity: 0.8;
-    max-width: 800px;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    font-weight: 300;
+    color: #444;
+    letter-spacing: 0.01em;
+    text-align: justify;
 }
 
-.imageGrid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 1rem;
+.projectImageSection {
     margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
-.gridItem {
+.heroImageWrapper {
     position: relative;
     width: 100%;
+    height: 80vh;
     border-radius: 4px;
     overflow: hidden;
-    background: #111;
     cursor: pointer;
+    background-color: #111;
 }
 
-.gridItem:nth-child(3n + 1) {
-    grid-column: span 12;
-    height: 80vh;
+.thumbnailSliderContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
 }
 
-.gridItem:nth-child(3n + 2),
-.gridItem:nth-child(3n + 3) {
-    grid-column: span 6;
-    height: 60vh;
+.thumbnailScroll {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0.5rem 0;
+    flex: 1;
+}
+
+.thumbnailScroll::-webkit-scrollbar {
+    display: none;
+}
+
+.thumbnailItem {
+    position: relative;
+    flex: 0 0 400px;
+    height: 250px;
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #111;
+}
+
+.sliderArrow {
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 2.5rem;
+    font-weight: 200;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+    padding: 0 1rem;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.sliderArrow:hover {
+    opacity: 0.8;
 }
 
 .image {
@@ -174,29 +221,86 @@
         padding-top: 80px;
     }
 
-    .projectInfoContainer {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .projectMetaColumn {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        padding-right: 0;
+    .projectHeader {
+        margin-bottom: 3rem;
         padding-bottom: 2rem;
-    }
-
-    .projectDescriptionColumn {
-        padding-left: 0;
+        text-align: left;
     }
 
     .projectName {
-        font-size: 1rem;
-        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 2.5rem;
+        letter-spacing: 0.15em;
     }
 
-    .gridItem:nth-child(n) {
-        grid-column: span 12 !important;
-        height: 50vh !important;
+    .projectInfoContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 3.5rem;
+        align-items: flex-start;
+    }
+
+    .projectMetaColumn {
+        flex: none;
+        gap: 1.5rem;
+        min-width: 100%;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .infoValue {
+        font-size: 0.8rem;
+    }
+
+    .projectDescription {
+        font-size: 1rem;
+        line-height: 1.8;
+        padding-top: 1rem;
+    }
+
+    .heroImageWrapper {
+        height: 50vh;
+    }
+
+    .thumbnailItem {
+        flex: 0 0 280px;
+        height: 180px;
+    }
+
+    .sliderArrow {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
+.watermark {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 1000;
+    mix-blend-mode: screen;
+}
+
+.watermarkImage {
+    width: 130px;
+    height: auto;
+    filter: invert(1);
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .watermark {
+        bottom: 3%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0.25;
+    }
+
+    .watermarkImage {
+        width: 100px;
     }
 }

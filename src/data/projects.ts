@@ -18,7 +18,7 @@ export interface Category {
 
 export const categoriesData: Category[] = [
     { name: "Residence", image: "/images/shinu-night.jpg" },
-    { name: "Commercial", image: "/images/abdurahiman-exterior-v2.jpg" },
+    { name: "Commercial", image: "/images/abdurahiman-5.jpg" },
     { name: "Institute", image: "/images/subin-night-v2.jpg" },
     { name: "Hospitality", image: "/images/shinu-facade.jpg" },
     { name: "Interior", image: "/images/subin-living.jpg" },
@@ -27,22 +27,124 @@ export const categoriesData: Category[] = [
 
 export const projects: Project[] = [
     {
+        id: 11,
+        category: "Masterplan",
+        client: "Institutional Hub",
+        title: "Medical Campus Masterplan",
+        slug: "medical-campus-masterplan",
+        area: "4.8 Acres",
+        location: "Kozhikode, Kerala",
+        year: "2024",
+        description: "A comprehensive masterplan for a medical facility, optimizing car and emergency accessibility while preserving natural swamp areas and integrating rain water harvesting. The design prioritizes efficient circulation and zoning for high-density public use.",
+        images: ["/images/masterplan-1.jpg"]
+    },
+    {
+        id: 12,
+        category: "Masterplan",
+        client: "Aviation Authority",
+        title: "Regional Airport Hub",
+        slug: "regional-airport-masterplan",
+        area: "250 Acres",
+        location: "India",
+        year: "2024",
+        description: "A large-scale strategic masterplan for a regional airport hub, featuring runway optimization, terminal zoning, and integrated logistics infrastructure. The plan balances technical aviation requirements with environmental topography.",
+        images: ["/images/masterplan-2.jpg"]
+    },
+    {
+        id: 13,
+        category: "Masterplan",
+        client: "Urban Development",
+        title: "Linear Mixed-Use Strip",
+        slug: "linear-urban-masterplan",
+        area: "12 Acres",
+        location: "Kerala",
+        year: "2023",
+        description: "An urban masterplan designed for a linear site, integrating commercial, residential, and green zones along a primary transit corridor. The project focuses on high-density development while maintaining quality pedestrian environments.",
+        images: ["/images/masterplan-3.jpg"]
+    },
+    {
+        id: 14,
+        category: "Masterplan",
+        client: "Terraced Residential",
+        title: "Hillside Community Development",
+        slug: "hillside-masterplan",
+        area: "8.5 Acres",
+        location: "Wayanad, Kerala",
+        year: "2024",
+        description: "A sensitive masterplan for a hillside site, utilizing natural contours to create a terraced residential community. The plan includes a kindergarten, sports zones, and residential apartments designed to minimize environmental impact.",
+        images: ["/images/masterplan-4.jpg"]
+    },
+    {
+        id: 10,
+        category: "Residence",
+        client: "MR. RAZIK & SINU",
+        title: "RESIDENCE AT FAROOK",
+        slug: "razik-farook",
+        area: "12500 SQFT",
+        location: "Farook, Kozhikode",
+        year: "2024",
+        description: "An elegant, minimalist residence that emphasizes light and spatial fluidly. The design integrates large glass openings with solid masonry to create a balanced sense of openness and privacy, perfectly suited for a modern family lifestyle.",
+        images: [
+            "/images/razik-1.png",
+            "/images/razik-2.png",
+            "/images/razik-3.png",
+            "/images/razik-4.png",
+            "/images/razik-5.png",
+            "/images/razik-6.png",
+            "/images/razik-7.png",
+            "/images/razik-8.png",
+            "/images/razik-9.png"
+        ]
+    },
+    {
+        id: 9,
+        category: "Residence",
+        client: "MR. SUJITH & SAVITHA",
+        title: "RESIDENCE AT TIRUR",
+        slug: "sujith-tirur",
+        area: "2500 SQFT",
+        location: "Tirur, Malappuram",
+        year: "2024",
+        description: "A contemporary residence featuring warm, earth-toned interiors and a seamless connection to private outdoor courts. The design emphasizes natural light and tactile materials to create a deeply personal and tranquil home environment.",
+        images: [
+            "/images/sujith-4.jpg",
+            "/images/sujith-1.jpg",
+            "/images/sujith-2.jpg",
+            "/images/sujith-3.jpg",
+            // "/images/sujith-5.jpg",
+            "/images/sujith-6.png",
+            "/images/sujith-7.png",
+            "/images/sujith-8.png",
+            "/images/sujith-9.png",
+            "/images/sujith-10.png",
+            "/images/sujith-11.png",
+            "/images/sujith-12.png",
+            "/images/sujith-13.png",
+            "/images/sujith-14.png",
+            "/images/sujith-15.png",
+
+        ]
+    },
+    {
         id: 1,
         category: "Residence",
         client: "Mr. Abdurahiman & Ms. Shareena",
-        title: "P A VILLA",
-        slug: "pavilla",
+        title: "RESIDENCE AT AREEKODE",
+        slug: "abdurahiman-areekode",
         area: "4000 SQFT",
         location: "Areekode, Malappuram",
         year: "2023",
-        description: "A modern villa that balances bold geometry with soft natural textures. The design creates fluid transitions between indoor and outdoor spaces while maintaining a calm, private living environment.",
+        description: "A modern residence that balances bold geometry with soft natural textures. The design creates fluid transitions between indoor and outdoor spaces while maintaining a calm, private living environment.",
         images: [
-            "/images/pavilla-1.jpg",
-            "/images/pavilla-2.jpg",
-            "/images/pavilla-3.jpg",
-            "/images/pavilla-5.jpg",
-            "/images/pavilla-4.jpg",
-            "/images/pavilla-6.jpg"
+            "/images/abdurahiman-5.jpg",
+
+            "/images/abdurahiman-4.jpg",
+            "/images/abdurahiman-3.jpg",
+            "/images/abdurahiman-6.jpg",
+            "/images/abdurahiman-2.jpg",
+            "/images/abdurahiman-1.jpg"
+
+
         ]
     },
     {
@@ -77,7 +179,7 @@ export const projects: Project[] = [
             "/images/shinu-night.jpg",
             "/images/shinu-facade.jpg",
             "/images/shinu-patio.jpg",
-            "/images/shinu-facade.jpg"
+            "/images/shinu-facade2.png"
         ]
     },
     {

@@ -6,9 +6,11 @@ import { useState, useEffect } from "react";
 import styles from "./Hero.module.css";
 
 const heroImages = [
-  { src: "/images/hero-1-new.jpg", title: "RESIDENCE AT AREEKODE" },
-  { src: "/images/subin-night-v2.jpg", title: "RESIDENCE AT NILAMBUR" },
-  { src: "/images/abdurahiman-exterior-v2.jpg", title: "RESIDENCE AT FAROOK" }
+  { src: "/images/hero-3.png", title: "Design" },
+  { src: "/images/hero-2.png", title: "Minimalism" },
+  { src: "/images/hero-4.png", title: "Interior" },
+  { src: "/images/hero-5.png", title: "Space" },
+  { src: "/images/hero-1.png", title: "Architecture" },
 ];
 
 export default function Hero() {
@@ -17,7 +19,7 @@ export default function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % heroImages.length);
-    }, 4000); // 4 seconds interval
+    }, 2500); // 4 seconds interval
 
     return () => clearInterval(timer);
   }, []);
@@ -42,6 +44,7 @@ export default function Hero() {
               priority
               quality={100}
               sizes="100vw"
+              onContextMenu={(e) => e.preventDefault()}
             />
             <div className={styles.overlay} />
 

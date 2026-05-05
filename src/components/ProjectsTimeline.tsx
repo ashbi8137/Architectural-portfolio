@@ -34,6 +34,7 @@ export default function ProjectsGallery() {
                                         fill
                                         className={styles.categoryBgImage}
                                         sizes="(max-width: 768px) 100vw, 33vw"
+                                        onContextMenu={(e) => e.preventDefault()}
                                     />
                                     <div className={styles.categoryOverlay} />
                                     <span className={styles.categoryCardTitle}>{cat.name}</span>

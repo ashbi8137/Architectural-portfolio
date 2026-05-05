@@ -9,6 +9,10 @@
     flex-direction: column;
 }
 
+.sectionNoContact {
+    padding-top: 0;
+}
+
 .container {
     max-width: 1200px;
     width: 100%;
@@ -257,8 +261,8 @@
 .copyrightRow {
     width: 100%;
     text-align: center;
-    margin-top: 4rem;
-    padding-top: 2rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
     border-top: 1px solid rgba(0, 0, 0, 0.03);
     font-size: 0.7rem;
     color: #999;

@@ -22,6 +22,7 @@ import PageTransition from "@/components/PageTransition";
 
 import Preloader from "@/components/Preloader";
 import StatusBar from "@/components/StatusBar";
+import ImageProtection from "@/components/ImageProtection";
 
 export default function RootLayout({
   children,
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={tenor.variable}>
       <body className="antialiased">
+        <ImageProtection />
         <Preloader />
         <StatusBar />
         <SmoothScroll>

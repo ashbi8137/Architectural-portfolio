@@ -23,11 +23,9 @@
 .heroOverlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to bottom,
-        transparent 50%,
-        rgba(0, 0, 0, 0.4) 100%
-    );
+    background: linear-gradient(to bottom,
+            transparent 50%,
+            rgba(0, 0, 0, 0.4) 100%);
     z-index: 1;
 }
 
@@ -70,19 +68,15 @@
 
 .profileFrame {
     position: relative;
-    width: 180px;
-    height: 180px;
-    border-radius: 50% 50% 50% 10%;
-    /* Unique organic shape - rounded with one flat corner */
+    width: 160px;
+    height: 160px;
     overflow: hidden;
-    border: 3px solid rgba(0, 0, 0, 0.06);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    background-color: #f5f5f5;
 }
 
 .profileImage {
     object-fit: cover;
-    object-position: center 20%;
-    transform: scale(1.4);
+    /* object-position: center center; */
     filter: grayscale(100%);
 }
 

@@ -17,6 +17,7 @@ export default function Manifesto() {
                     priority
                     quality={100}
                     sizes="100vw"
+                    onContextMenu={(e) => e.preventDefault()}
                 />
                 <div className={styles.heroOverlay} />
                 <motion.div
@@ -42,12 +43,14 @@ export default function Manifesto() {
                     <div className={styles.aboutLeft}>
                         <div className={styles.profileFrame}>
                             <Image
-                                src="/images/ceo-new.jpg"
+                                src="/images/ceo-new.png"
                                 alt="Ar. Shamil Puthusseri"
                                 fill
                                 className={styles.profileImage}
-                                quality={90}
-                                sizes="200px"
+                                quality={100}
+                                priority
+                                sizes="400px"
+                                onContextMenu={(e) => e.preventDefault()}
                             />
                         </div>
                         <h3 className={styles.profileName}>Ar. Shamil Puthusseri</h3>
@@ -60,8 +63,8 @@ export default function Manifesto() {
                             "Every structure begins as a whisper between land, light, and imagination."
                         </blockquote>
                         <p className={styles.aboutText}>
-                            We design spaces that breathe with their surroundings — balancing 
-                            contemporary aesthetics with timeless sensibility. Every project is 
+                            We design spaces that breathe with their surroundings — balancing
+                            contemporary aesthetics with timeless sensibility. Every project is
                             a conversation between aspiration and site.
                         </p>
                     </div>

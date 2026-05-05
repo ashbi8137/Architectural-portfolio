@@ -1,0 +1,125 @@
+.section {
+    padding: 3rem 2rem 1rem 2rem;
+    background-color: var(--background);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.heading {
+    font-family: var(--font-tenor), sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    opacity: 0.6;
+    white-space: nowrap;
+}
+
+.line {
+    flex: 1;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background-color: #111;
+    border-radius: 4px;
+}
+
+.image {
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.viewLabel {
+    color: white;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 1rem 2rem;
+}
+
+.card:hover .image {
+    transform: scale(1.05);
+}
+
+.card:hover .overlay {
+    opacity: 1;
+}
+
+.info {
+    margin-top: 1.5rem;
+}
+
+.category {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0.4;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.title {
+    font-family: var(--font-tenor), sans-serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 5rem 1rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .heading {
+        font-size: 0.7rem;
+    }
+
+    .imageWrapper {
+        aspect-ratio: 1 / 1;
+    }
+}
