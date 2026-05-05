@@ -1,10 +1,7 @@
 1:"$Sreact.fragment"
-2:I[47257,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"ClientPageRoot"]
-3:I[22029,["/_next/static/chunks/4805b8393d7c4a0e.js","/_next/static/chunks/88aff815f9c2499f.js","/_next/static/chunks/8b97fdb95988edf8.js","/_next/static/chunks/0ef0730a0032e6a5.js"],"default"]
-6:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
-7:"$Sreact.suspense"
-:HL["/_next/static/chunks/2184431639f73344.css","style"]
-0:{"buildId":"DYXMg-BRUifX_G4kYtp1h","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{"category":"masterplan","slug":"oasisecotownship"},"promises":["$@4","$@5"]}}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2184431639f73344.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/0ef0730a0032e6a5.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
-4:{}
-5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
-8:null
+2:I[75141,["/_next/static/chunks/4805b8393d7c4a0e.js","/_next/static/chunks/88aff815f9c2499f.js","/_next/static/chunks/fd148b55adefb263.js","/_next/static/chunks/41de29310b2166ff.js"],"default"]
+3:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+:HL["/_next/static/chunks/f85d5b3973ade96c.css","style"]
+0:{"buildId":"gJlN16KDRlJqPy7jLoxnr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"activeProject":{"id":8,"category":"Masterplan","client":"Oasis Developers","title":"Oasis Eco Township","slug":"oasisecotownship","area":"15 Acres","location":"Palakkad","year":"2027","description":"A comprehensive masterplan for a sustainable township. It includes residential zones, commercial hubs, and extensive green corridors designed to promote a holistic community lifestyle.","images":["/images/pavilla-3.jpg","/images/abdurahiman-exterior-v2.jpg","/images/shinu-facade.jpg"]},"decodedCategory":"masterplan"}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/f85d5b3973ade96c.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/41de29310b2166ff.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+5:null

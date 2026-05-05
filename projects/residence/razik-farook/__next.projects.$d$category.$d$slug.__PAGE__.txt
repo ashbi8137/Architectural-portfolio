@@ -1,0 +1,7 @@
+1:"$Sreact.fragment"
+2:I[75141,["/_next/static/chunks/4805b8393d7c4a0e.js","/_next/static/chunks/88aff815f9c2499f.js","/_next/static/chunks/fd148b55adefb263.js","/_next/static/chunks/41de29310b2166ff.js"],"default"]
+3:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+:HL["/_next/static/chunks/f85d5b3973ade96c.css","style"]
+0:{"buildId":"gJlN16KDRlJqPy7jLoxnr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"activeProject":{"id":10,"category":"Residence","client":"MR. RAZIK & SINU","title":"RESIDENCE AT FAROOK","slug":"razik-farook","area":"12500 SQFT","location":"Farook, Kozhikode","year":"2024","description":"An elegant, minimalist residence that emphasizes light and spatial fluidly. The design integrates large glass openings with solid masonry to create a balanced sense of openness and privacy, perfectly suited for a modern family lifestyle.","images":["/images/razik-1.png","/images/razik-2.png","/images/razik-3.png","/images/razik-4.png","/images/razik-5.png","/images/razik-6.png","/images/razik-7.png","/images/razik-8.png","/images/razik-9.png"]},"decodedCategory":"residence"}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/f85d5b3973ade96c.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/41de29310b2166ff.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+5:null
