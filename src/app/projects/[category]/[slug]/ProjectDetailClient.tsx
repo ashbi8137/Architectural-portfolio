@@ -24,6 +24,8 @@ export default function ProjectDetailClient({
         window.scrollTo(0, 0);
     }, [activeProject.id]);
 
+    const isVideo = (url: string) => url.toLowerCase().endsWith('.mp4') || url.toLowerCase().endsWith('.webm');
+
     const scroll = (direction: 'left' | 'right') => {
         if (scrollRef.current) {
             const scrollAmount = window.innerWidth > 768 ? 600 : 300;
@@ -69,7 +71,7 @@ export default function ProjectDetailClient({
                 </div>
 
                 <div className={styles.projectImageSection}>
-                    {/* Hero Image */}
+                    {/* Hero Media */}
                     {activeProject.images.length > 0 && (
                         <motion.div 
                             className={styles.heroImageWrapper}
@@ -78,15 +80,27 @@ export default function ProjectDetailClient({
                             transition={{ duration: 0.8 }}
                             onClick={() => setSelectedImage(activeProject.images[0])}
                         >
-                            <Image
-                                src={activeProject.images[0]}
-                                alt={activeProject.title}
-                                fill
-                                className={styles.image}
-                                sizes="100vw"
-                                priority
-                                onContextMenu={(e) => e.preventDefault()}
-                            />
+                            {isVideo(activeProject.images[0]) ? (
+                                <video 
+                                    src={activeProject.images[0]}
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    className={styles.image}
+                                    style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                                />
+                            ) : (
+                                <Image
+                                    src={activeProject.images[0]}
+                                    alt={activeProject.title}
+                                    fill
+                                    className={styles.image}
+                                    sizes="100vw"
+                                    priority
+                                    onContextMenu={(e) => e.preventDefault()}
+                                />
+                            )}
                         </motion.div>
                     )}
 
@@ -108,14 +122,26 @@ export default function ProjectDetailClient({
                                         transition={{ duration: 0.5, delay: idx * 0.1 }}
                                         onClick={() => setSelectedImage(img)}
                                     >
-                                        <Image
-                                            src={img}
-                                            alt={`${activeProject.title} view ${idx + 2}`}
-                                            fill
-                                            className={styles.image}
-                                            sizes="300px"
-                                            onContextMenu={(e) => e.preventDefault()}
-                                        />
+                                        {isVideo(img) ? (
+                                            <video 
+                                                src={img}
+                                                autoPlay
+                                                muted
+                                                loop
+                                                playsInline
+                                                className={styles.image}
+                                                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                                            />
+                                        ) : (
+                                            <Image
+                                                src={img}
+                                                alt={`${activeProject.title} view ${idx + 2}`}
+                                                fill
+                                                className={styles.image}
+                                                sizes="300px"
+                                                onContextMenu={(e) => e.preventDefault()}
+                                            />
+                                        )}
                                     </motion.div>
                                 ))}
                             </div>
@@ -150,14 +176,25 @@ export default function ProjectDetailClient({
                             exit={{ scale: 0.9, opacity: 0 }}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <Image
-                                src={selectedImage}
-                                alt="Fullscreen"
-                                fill
-                                className={styles.lightboxImage}
-                                quality={100}
-                                onContextMenu={(e) => e.preventDefault()}
-                            />
+                            {isVideo(selectedImage) ? (
+                                <video 
+                                    src={selectedImage}
+                                    controls
+                                    autoPlay
+                                    muted
+                                    className={styles.lightboxImage}
+                                    style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                                />
+                            ) : (
+                                <Image
+                                    src={selectedImage}
+                                    alt="Fullscreen"
+                                    fill
+                                    className={styles.lightboxImage}
+                                    quality={100}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                />
+                            )}
                             
                             {/* WATERMARK */}
                             <div className={styles.watermark}>
@@ -178,3 +215,4 @@ export default function ProjectDetailClient({
         </main>
     );
 }
+

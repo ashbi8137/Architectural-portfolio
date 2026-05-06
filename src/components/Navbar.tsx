@@ -10,10 +10,11 @@ import styles from "./Navbar.module.css";
 
 const navItems = [
     { name: "HOME", href: "/" },
-    { name: "PROJECTS", href: "/#projects" },
+    { name: "PROJECTS", href: "/projects" },
     { name: "STUDIO", href: "/studio" },
     { name: "CONTACT", href: "/#contact" },
 ];
+
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);

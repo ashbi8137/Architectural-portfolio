@@ -6,12 +6,15 @@ import { useState, useEffect } from "react";
 import styles from "./Hero.module.css";
 
 const heroImages = [
-  { src: "/images/hero-3.png", title: "Design" },
-  { src: "/images/hero-2.png", title: "Minimalism" },
-  { src: "/images/hero-4.png", title: "Interior" },
-  { src: "/images/hero-5.png", title: "Space" },
-  { src: "/images/hero-1.png", title: "Architecture" },
+  { src: "/images/hero/hero-1.png", title: "Architecture" },
+  { src: "/images/hero/hero-2.png", title: "Minimalism" },
+  { src: "/images/hero/hero-3.png", title: "Design" },
+  { src: "/images/hero/hero-4.png", title: "Interior" },
+  { src: "/images/hero/hero-5.png", title: "Space" },
+  { src: "/images/hero/hero-6.png", title: "Vision" },
 ];
+
+
 
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -23,10 +23,11 @@ export default function RelatedProjects({
         related = projects.filter(p => p.id !== currentProjectId);
     }
 
-    // Take the next 2 projects
-    const displayProjects = related.slice(0, 2);
+    // Take the next 3 projects
+    const displayProjects = related.slice(0, 3);
 
-    if (displayProjects.length === 0) return null;
+
+    const isVideo = (url: string) => url.toLowerCase().endsWith('.mp4') || url.toLowerCase().endsWith('.webm');
 
     return (
         <section className={styles.section}>
@@ -50,13 +51,25 @@ export default function RelatedProjects({
                                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                             >
                                 <div className={styles.imageWrapper}>
-                                    <Image
-                                        src={project.images[0]}
-                                        alt={project.title}
-                                        fill
-                                        className={styles.image}
-                                        sizes="(max-width: 768px) 100vw, 50vw"
-                                    />
+                                    {isVideo(project.images[0]) ? (
+                                        <video 
+                                            src={project.images[0]}
+                                            autoPlay
+                                            muted
+                                            loop
+                                            playsInline
+                                            className={styles.image}
+                                            style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                                        />
+                                    ) : (
+                                        <Image
+                                            src={project.images[0]}
+                                            alt={project.title}
+                                            fill
+                                            className={styles.image}
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                        />
+                                    )}
                                     <div className={styles.overlay}>
                                         <span className={styles.viewLabel}>View Project</span>
                                     </div>
@@ -73,3 +86,4 @@ export default function RelatedProjects({
         </section>
     );
 }
+

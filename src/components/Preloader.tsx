@@ -49,20 +49,22 @@ export default function Preloader() {
                             width: '40%',
                             maxWidth: '160px',
                             height: 'auto',
-                            aspectRatio: '4/1'
+                            aspectRatio: '4/1',
                         }}
                     >
-                        <Image
+                        <img
                             src="/images/logo_final.png"
                             alt="Shamil Puthusseri Architects"
-                            fill
                             style={{ 
+                                width: '100%',
+                                height: '100%',
                                 objectFit: 'contain',
-                                mixBlendMode: 'multiply' // Removes white background from non-transparent PNGs
+                                display: 'block',
+                                mixBlendMode: 'multiply',
                             }}
-                            priority
                         />
                     </motion.div>
+
                 </motion.div>
             )}
         </AnimatePresence>

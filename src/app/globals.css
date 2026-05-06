@@ -79,3 +79,8 @@ a {
   background: var(--accent);
   color: white;
 }
+
+.preloader-logo {
+  mix-blend-mode: multiply !important;
+  background-color: transparent !important;
+}

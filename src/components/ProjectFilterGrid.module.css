@@ -1,0 +1,190 @@
+.section {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--background);
+    padding: 0;
+    color: var(--foreground);
+    overflow: hidden;
+}
+
+.container {
+    padding: 8rem 5% 6rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filterBar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 5rem;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.filterButton {
+    font-family: var(--font-tenor), sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #666;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.8rem 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filterButton:hover {
+    color: #000;
+}
+
+.activeFilter {
+    color: #ff4d4d;
+    background: #e5e5e5;
+    font-weight: 500;
+}
+
+.projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    width: 100%;
+}
+
+@media (max-width: 1400px) {
+    .projectsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1100px) {
+    .projectsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .filterBar {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.25rem;
+        margin-bottom: 2rem;
+        padding: 0.25rem;
+    }
+
+    .filterButton {
+        padding: 0.6rem 0.2rem;
+        font-size: 0.5rem;
+        letter-spacing: 0.05em;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .projectsGrid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+    }
+
+    .projectTitle {
+        font-size: 0.45rem;
+        letter-spacing: 0.05em;
+    }
+
+    .projectLocation {
+        font-size: 0.35rem;
+    }
+
+    .projectOverlay {
+        padding: 0.5rem;
+    }
+}
+
+
+.projectCard {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background: #fff;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.projectImageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.projectImage {
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.projectCard:hover .projectImage {
+    transform: scale(1.08);
+}
+
+.projectOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    padding: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.03);
+    z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.projectCard:hover .projectOverlay {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.projectInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.projectTitle {
+    font-family: var(--font-tenor), sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.projectLocation {
+    font-family: var(--font-tenor), sans-serif;
+    font-size: 0.6rem;
+    color: #888;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.projectArrow {
+    opacity: 0.3;
+    transition: all 0.3s ease;
+}
+
+.projectCard:hover .projectArrow {
+    opacity: 1;
+    transform: translateX(4px);
+}

@@ -45,12 +45,13 @@
 
 .categoryGrid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* Mobile default changed to 2 columns */
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    /* Changed to 3 columns for mobile */
+    gap: 0.75rem;
     width: 100%;
     max-width: 1400px;
 }
+
 
 /* Force 3 columns on practically all non-mobile screens */
 @media (min-width: 600px) {
@@ -71,8 +72,9 @@
     cursor: pointer;
     overflow: hidden;
     transition: all 0.4s ease;
-    min-height: 180px;
+    min-height: 120px;
 }
+
 
 .categoryBgImage {
     object-fit: cover;
@@ -119,6 +121,8 @@
     /* Hide the arrow since it's centered text over image now */
 }
 
+
+
 /* Gallery View (Expanded) */
 .gallerySection,
 .projectListSection {
@@ -164,8 +168,8 @@
     letter-spacing: 0.4em;
 }
 
-/* 2-Column Projects Grid */
-.projectsGrid {
+/* 2-Column Projects Grid (Legacy/Category Pages) */
+.projectsGridLegacy {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 4rem;
@@ -173,6 +177,7 @@
     margin: 0 auto;
     width: 100%;
 }
+
 
 .projectThumbCard {
     cursor: pointer;
@@ -543,10 +548,8 @@
         text-align: center;
     }
 
-    .projectsGrid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
+    /* Removed redundant .projectsGrid override */
+
 
     .projectThumbTitle {
         font-size: 0.6rem;
@@ -586,7 +589,9 @@
     }
 
     .categoryCardTitle {
-        font-size: 0.6rem;
-        bottom: 1rem;
+        font-size: 0.55rem;
+        letter-spacing: 0.1em;
+        bottom: 0.8rem;
     }
+
 }

@@ -218,31 +218,37 @@
     .main {
         padding-left: 1rem;
         padding-right: 1rem;
-        padding-top: 80px;
+        padding-top: 60px;
+        padding-bottom: 2rem;
     }
 
+    .infoItem {
+        gap: 0.1rem;
+    }
+
+
     .projectHeader {
-        margin-bottom: 3rem;
-        padding-bottom: 2rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
         text-align: left;
     }
 
     .projectName {
-        font-size: 1.5rem;
-        margin-bottom: 2.5rem;
-        letter-spacing: 0.15em;
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.12em;
     }
 
     .projectInfoContainer {
         display: flex;
         flex-direction: column;
-        gap: 3.5rem;
+        gap: 1.5rem;
         align-items: flex-start;
     }
 
     .projectMetaColumn {
         flex: none;
-        gap: 1.5rem;
+        gap: 1rem;
         min-width: 100%;
         padding-bottom: 1rem;
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -253,10 +259,11 @@
     }
 
     .projectDescription {
-        font-size: 1rem;
-        line-height: 1.8;
-        padding-top: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        padding-top: 0.5rem;
     }
+
 
     .heroImageWrapper {
         height: 50vh;

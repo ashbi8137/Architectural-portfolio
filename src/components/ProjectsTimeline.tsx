@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./ProjectsTimeline.module.css";
-import { projects, categoriesData } from "@/data/projects";
+import { categoriesData } from "@/data/projects";
 
 export default function ProjectsGallery() {
     return (
@@ -20,7 +20,11 @@ export default function ProjectsGallery() {
                     <h2 className={styles.sectionTitle}>Featured Projects</h2>
                     <div className={styles.categoryGrid}>
                         {categoriesData.map((cat, i) => (
-                            <Link href={`/projects/${cat.name.toLowerCase()}`} key={cat.name} style={{ textDecoration: 'none' }}>
+                            <Link 
+                                href={`/projects?category=${cat.name.toLowerCase()}`} 
+                                key={cat.name} 
+                                style={{ textDecoration: 'none' }}
+                            >
                                 <motion.div
                                     className={styles.categoryCard}
                                     initial={{ opacity: 0, y: 20 }}
@@ -48,3 +52,5 @@ export default function ProjectsGallery() {
         </section>
     );
 }
+
+
