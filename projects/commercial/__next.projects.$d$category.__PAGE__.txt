@@ -1,7 +1,0 @@
-1:"$Sreact.fragment"
-2:I[26361,["/_next/static/chunks/4805b8393d7c4a0e.js","/_next/static/chunks/88aff815f9c2499f.js","/_next/static/chunks/fd148b55adefb263.js","/_next/static/chunks/91ece1b70a71cc33.js"],"default"]
-3:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
-4:"$Sreact.suspense"
-:HL["/_next/static/chunks/c5b7f73c3c45a8c2.css","style"]
-0:{"buildId":"sR3hMXj3VMp3X1Wu3R1J1","rsc":["$","$1","c",{"children":[["$","$L2",null,{"categoryProjects":[{"id":4,"category":"Commercial","client":"Lumina Retail Group","title":"Lumina Grand Mall","slug":"luminagrandmall","area":"150000 SQFT","location":"Kozhikode City","year":"2025","description":"A state-of-the-art commercial complex featuring dynamic retail spaces and a central atrium. Designed to maximize natural light and foster an engaging shopping experience.","images":["/images/abdurahiman-exterior-v2.jpg","/images/pavilla-2.jpg","/images/pavilla-3.jpg","/images/pavilla-5.jpg"]}],"decodedCategory":"commercial"}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/c5b7f73c3c45a8c2.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/91ece1b70a71cc33.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
-5:null

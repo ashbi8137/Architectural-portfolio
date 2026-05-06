@@ -1,4 +1,0 @@
-:HL["/_next/static/chunks/5020d8ccc7448ff6.css","style"]
-:HL["/_next/static/media/35a317e37c2135a2-s.p.65dc74ba.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/chunks/f85d5b3973ade96c.css","style"]
-0:{"buildId":"sR3hMXj3VMp3X1Wu3R1J1","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"projects","paramType":null,"paramKey":"projects","hasRuntimePrefetch":false,"slots":{"children":{"name":"category","paramType":"d","paramKey":"interior","hasRuntimePrefetch":false,"slots":{"children":{"name":"slug","paramType":"d","paramKey":"modernminimalistclinic","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
