@@ -19,7 +19,6 @@ export default function ProjectDetailClient({
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
     const scrollRef = useRef<HTMLDivElement>(null);
 
-    const selectedImage = selectedIndex !== null ? activeProject.images[selectedIndex] : null;
 
     // Force scroll to top when project changes
     useEffect(() => {
@@ -187,7 +186,7 @@ export default function ProjectDetailClient({
 
             {/* LIGHTBOX */}
             <AnimatePresence mode="wait">
-                {selectedImage && (
+                {selectedIndex !== null && (
                     <motion.div
                         className={styles.lightboxOverlay}
                         initial={{ opacity: 0 }}
@@ -196,7 +195,7 @@ export default function ProjectDetailClient({
                         onClick={() => setSelectedIndex(null)}
                     >
                         <motion.div
-                            key={selectedImage}
+                            key={activeProject.images[selectedIndex]}
                             className={styles.lightboxContent}
                             initial={{ x: 300, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
@@ -215,9 +214,9 @@ export default function ProjectDetailClient({
                                 }
                             }}
                         >
-                            {isVideo(selectedImage) ? (
+                            {isVideo(activeProject.images[selectedIndex]) ? (
                                 <video 
-                                    src={selectedImage}
+                                    src={activeProject.images[selectedIndex]}
                                     controls
                                     autoPlay
                                     muted
@@ -226,7 +225,7 @@ export default function ProjectDetailClient({
                                 />
                             ) : (
                                 <Image
-                                    src={selectedImage}
+                                    src={activeProject.images[selectedIndex]}
                                     alt="Fullscreen"
                                     fill
                                     className={styles.lightboxImage}
