@@ -214,6 +214,35 @@
     opacity: 1;
 }
 
+.lightboxNav {
+    position: absolute;
+    bottom: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+    font-family: var(--font-tenor), sans-serif;
+}
+
+@media (max-width: 768px) {
+    .lightboxContent {
+        touch-action: none;
+    }
+    
+    .lightboxNav {
+        bottom: -2rem;
+        font-size: 0.8rem;
+    }
+    
+    .closeButton {
+        top: -3rem;
+        right: -0.5rem;
+    }
+}
+
+
 @media (max-width: 768px) {
     .main {
         padding-left: 1rem;

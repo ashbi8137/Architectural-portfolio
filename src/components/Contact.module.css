@@ -230,10 +230,11 @@
 }
 
 .contactValue {
-    font-size: 0.8rem;
-    /* Reduced from 0.9rem */
+    font-size: 0.75rem;
+    /* Reduced from 0.8rem */
     color: #333;
-    line-height: 1.6;
+    line-height: 1.5;
+    /* Tighter line height */
     font-family: var(--font-tenor), serif;
     letter-spacing: 0.02em;
 }
@@ -283,9 +284,10 @@
     }
 
     .container {
-        padding: 1rem 0;
-        /* Reduced from 4rem */
-        gap: 2rem;
+        padding: 0.5rem 0;
+        /* Reduced from 1rem */
+        gap: 1.2rem;
+        /* Reduced from 2rem */
     }
 
     .formWrapper {
@@ -294,7 +296,8 @@
 
     .form {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.2rem;
+        /* Reduced from 2rem */
     }
 
     .heading {
@@ -320,6 +323,31 @@
 
     .button {
         width: 100%;
+        padding: 1rem 2rem;
+        /* Reduced padding */
+        font-size: 0.7rem;
+        /* Reduced from 0.8rem */
+    }
+
+    .label {
+        font-size: 0.55rem;
+        /* Reduced from 0.65rem */
+    }
+
+    .input,
+    .textarea,
+    .customSelectTrigger {
+        font-size: 0.85rem !important;
+        /* Reduced from 1rem */
+        padding: 0.6rem 0;
+        /* Reduced from 1rem */
+    }
+
+    .heading {
+        font-size: 0.55rem !important;
+        /* Even smaller for mobile */
+        margin-bottom: 1rem;
+        /* Reduced from 1.5rem */
     }
 
     .footerGrid {
@@ -327,8 +355,12 @@
         flex-direction: column;
         align-items: center;
         /* Center the whole group */
-        gap: 3rem;
-        padding-top: 3rem;
+        gap: 1.8rem;
+        /* Reduced from 3rem */
+        padding-top: 1.5rem;
+        /* Reduced from 3rem */
+        margin-top: 1rem;
+        /* Tightened margin */
     }
 
     .footerColumn {
@@ -337,6 +369,8 @@
         width: 100%;
         max-width: 280px;
         /* Constrain width so they all start from the same left position */
+        gap: 1.2rem;
+        /* Reduced from 2rem */
     }
 
     .contactItem {
@@ -349,10 +383,14 @@
     }
 
     .copyrightRow {
-        margin-top: 3rem;
+        margin-top: 1.5rem;
+        /* Reduced from 3rem */
+        padding-top: 1rem;
         text-align: center;
-        line-height: 2;
-        /* Add some space between the two lines */
+        line-height: 1.6;
+        /* Tighter line height */
+        font-size: 0.55rem;
+        /* Smaller font size */
     }
 
     .mobileBreak {

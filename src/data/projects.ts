@@ -331,24 +331,6 @@ export const projects: Project[] = [
         ]
     },
     {
-        id: 19,
-        category: "Institute",
-        client: "Educational Trust",
-        title: "INTERNATIONAL SCHOOL MANJERI",
-        slug: "international-school-manjeri",
-        area: "85000 SQFT",
-        location: "Manjeri, Malappuram",
-        year: "2024",
-        description: "A modern international school campus featuring world-class facilities. The design prioritizes student safety, accessibility, and a seamless connection to outdoor learning spaces.",
-        images: [
-            "/images/INSTITUTE/INTERNATIONAL SCHOOL MANJERI/manjerischool-1.jpg",
-            "/images/INSTITUTE/INTERNATIONAL SCHOOL MANJERI/manjerischool-2.jpg",
-            "/images/INSTITUTE/INTERNATIONAL SCHOOL MANJERI/manjerischool-3.jpg",
-            "/images/INSTITUTE/INTERNATIONAL SCHOOL MANJERI/manjerischool-4.png",
-            "/images/INSTITUTE/INTERNATIONAL SCHOOL MANJERI/manjerischool-5.png"
-        ]
-    },
-    {
         id: 18,
         category: "Institute",
         client: "Government of Kerala",
@@ -366,6 +348,25 @@ export const projects: Project[] = [
             "/images/INSTITUTE/GLPS THACHANNA/thachanna-5.jpg"
         ]
     },
+    {
+        id: 19,
+        category: "Institute",
+        client: "Educational Trust",
+        title: "INTERNATIONAL SCHOOL MANJERI",
+        slug: "international-school-manjeri",
+        area: "85000 SQFT",
+        location: "Manjeri, Malappuram",
+        year: "2024",
+        description: "A modern international school campus featuring world-class facilities. The design prioritizes student safety, accessibility, and a seamless connection to outdoor learning spaces.",
+        images: [
+            "/images/INSTITUTE/INTERNATIONAL SCHOOL MANJERI/manjerischool-1.jpg",
+            "/images/INSTITUTE/INTERNATIONAL SCHOOL MANJERI/manjerischool-2.jpg",
+            "/images/INSTITUTE/INTERNATIONAL SCHOOL MANJERI/manjerischool-3.jpg",
+            "/images/INSTITUTE/INTERNATIONAL SCHOOL MANJERI/manjerischool-4.png",
+            "/images/INSTITUTE/INTERNATIONAL SCHOOL MANJERI/manjerischool-5.png"
+        ]
+    },
+
     {
         id: 21,
         category: "Hospitality",
@@ -434,8 +435,8 @@ export const projects: Project[] = [
         year: "2024",
         description: "A state-of-the-art multi-specialty hospital designed with a focus on patient well-being and efficient medical workflows. The facility integrates advanced medical infrastructure with calming, nature-inspired interiors and healing gardens.",
         images: [
-            "/images/HEALTHCARE/newlife-1.mp4",
             "/images/HEALTHCARE/newlife-2.jpg",
+            "/images/HEALTHCARE/newlife-1.mp4",
             "/images/HEALTHCARE/newlife-3.jpg",
             "/images/HEALTHCARE/newlife-4.jpg",
             "/images/HEALTHCARE/newlife-5.jpg",

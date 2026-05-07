@@ -16,13 +16,39 @@ export default function ProjectDetailClient({
     activeProject: Project, 
     decodedCategory: string 
 }) {
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
     const scrollRef = useRef<HTMLDivElement>(null);
+
+    const selectedImage = selectedIndex !== null ? activeProject.images[selectedIndex] : null;
 
     // Force scroll to top when project changes
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [activeProject.id]);
+
+    // Keyboard navigation
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (selectedIndex === null) return;
+            
+            if (e.key === "ArrowRight") navigateNext();
+            if (e.key === "ArrowLeft") navigatePrev();
+            if (e.key === "Escape") setSelectedIndex(null);
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [selectedIndex]);
+
+    const navigateNext = () => {
+        if (selectedIndex === null) return;
+        setSelectedIndex((selectedIndex + 1) % activeProject.images.length);
+    };
+
+    const navigatePrev = () => {
+        if (selectedIndex === null) return;
+        setSelectedIndex((selectedIndex - 1 + activeProject.images.length) % activeProject.images.length);
+    };
 
     const isVideo = (url: string) => url.toLowerCase().endsWith('.mp4') || url.toLowerCase().endsWith('.webm');
 
@@ -78,7 +104,7 @@ export default function ProjectDetailClient({
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
-                            onClick={() => setSelectedImage(activeProject.images[0])}
+                            onClick={() => setSelectedIndex(0)}
                         >
                             {isVideo(activeProject.images[0]) ? (
                                 <video 
@@ -120,7 +146,7 @@ export default function ProjectDetailClient({
                                         whileInView={{ opacity: 1 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 0.5, delay: idx * 0.1 }}
-                                        onClick={() => setSelectedImage(img)}
+                                        onClick={() => setSelectedIndex(idx + 1)}
                                     >
                                         {isVideo(img) ? (
                                             <video 
@@ -160,21 +186,34 @@ export default function ProjectDetailClient({
             />
 
             {/* LIGHTBOX */}
-            <AnimatePresence>
+            <AnimatePresence mode="wait">
                 {selectedImage && (
                     <motion.div
                         className={styles.lightboxOverlay}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        onClick={() => setSelectedImage(null)}
+                        onClick={() => setSelectedIndex(null)}
                     >
                         <motion.div
+                            key={selectedImage}
                             className={styles.lightboxContent}
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.9, opacity: 0 }}
+                            initial={{ x: 300, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            exit={{ x: -300, opacity: 0 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
                             onClick={(e) => e.stopPropagation()}
+                            drag="x"
+                            dragConstraints={{ left: 0, right: 0 }}
+                            dragElastic={1}
+                            onDragEnd={(e, { offset, velocity }) => {
+                                const swipe = offset.x;
+                                if (swipe < -100) {
+                                    navigateNext();
+                                } else if (swipe > 100) {
+                                    navigatePrev();
+                                }
+                            }}
                         >
                             {isVideo(selectedImage) ? (
                                 <video 
@@ -192,6 +231,7 @@ export default function ProjectDetailClient({
                                     fill
                                     className={styles.lightboxImage}
                                     quality={100}
+                                    draggable={false}
                                     onContextMenu={(e) => e.preventDefault()}
                                 />
                             )}
@@ -207,7 +247,12 @@ export default function ProjectDetailClient({
                                 />
                             </div>
 
-                            <button className={styles.closeButton} onClick={() => setSelectedImage(null)}>✕</button>
+                            <button className={styles.closeButton} onClick={() => setSelectedIndex(null)}>✕</button>
+
+                            {/* NAVIGATION HINT */}
+                            <div className={styles.lightboxNav}>
+                                <span>{selectedIndex + 1} / {activeProject.images.length}</span>
+                            </div>
                         </motion.div>
                     </motion.div>
                 )}
@@ -215,4 +260,5 @@ export default function ProjectDetailClient({
         </main>
     );
 }
+
 
